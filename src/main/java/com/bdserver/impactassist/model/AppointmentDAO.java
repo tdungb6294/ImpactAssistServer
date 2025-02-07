@@ -12,5 +12,7 @@ public class AppointmentDAO {
     private LocalDateTime date;
     private int availabilityId;
     private int userId;
-    private int expertId;
+    private int localExpertId;
+    private String status;
+    private AppointmentStatusEnum appointmentStatus;
 }

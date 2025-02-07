@@ -17,7 +17,7 @@ public interface UserRepo {
     @Select("SELECT * FROM users WHERE email = #{username}")
     UserDAO findByUsername(String username);
 
-    @Select("SELECT * FROM users")
+    @Select("SELECT id, full_name as fullName, email, phone FROM users")
     List<UserDAO> findAll();
 
     @Select("SELECT * FROM users WHERE id = ${id}")

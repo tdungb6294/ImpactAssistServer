@@ -5,8 +5,7 @@ import lombok.Data;
 import java.time.LocalTime;
 
 @Data
-public class AvailabilityDAO {
-    private int id;
+public class RequestAvailabilityDAO {
     private LocalTime startTime;
     private LocalTime endTime;
     private String dayOfWeek;
