@@ -1,7 +1,9 @@
 package com.bdserver.impactassist.service;
 
 import com.bdserver.impactassist.model.AvailabilityDAO;
+import com.bdserver.impactassist.model.AvailabilitySummaryDAO;
 import com.bdserver.impactassist.model.RequestAvailabilityDAO;
+import com.bdserver.impactassist.model.UnavailabilityDAO;
 import com.bdserver.impactassist.repo.LocalExpertAvailabilityRepo;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,10 @@ public class LocalExpertAvailabilityService {
         this.localExpertAvailabilityRepo = localExpertAvailabilityRepo;
     }
 
-    public List<AvailabilityDAO> getAvailabilitiesByExpertId(int localExpertId) {
-        return localExpertAvailabilityRepo.getAvailabilitiesById(localExpertId);
+    public AvailabilitySummaryDAO getAvailabilitiesByExpertId(int localExpertId) {
+        List<AvailabilityDAO> availabilities = localExpertAvailabilityRepo.getAvailabilitiesById(localExpertId);
+        List<UnavailabilityDAO> unavailability = localExpertAvailabilityRepo.getUnavailableAppointments(localExpertId);
+        return new AvailabilitySummaryDAO(availabilities, unavailability);
     }
 
     public void createNewAvailability(RequestAvailabilityDAO requestAvailabilityDAO) {

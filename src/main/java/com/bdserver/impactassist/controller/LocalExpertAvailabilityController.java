@@ -1,11 +1,9 @@
 package com.bdserver.impactassist.controller;
 
-import com.bdserver.impactassist.model.AvailabilityDAO;
+import com.bdserver.impactassist.model.AvailabilitySummaryDAO;
 import com.bdserver.impactassist.model.RequestAvailabilityDAO;
 import com.bdserver.impactassist.service.LocalExpertAvailabilityService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("local_expert_availability")
@@ -16,6 +14,7 @@ public class LocalExpertAvailabilityController {
         this.localExpertAvailabilityService = localExpertAvailabilityService;
     }
 
+    //TODO validation for date = day of week (e. g. monday)
     @PostMapping()
     void createAvailability(@RequestBody RequestAvailabilityDAO requestAvailabilityDAO) {
         this.localExpertAvailabilityService.createNewAvailability(requestAvailabilityDAO);
@@ -25,9 +24,9 @@ public class LocalExpertAvailabilityController {
     void deleteAvailability(@PathVariable int id) {
         this.localExpertAvailabilityService.deleteAvailability(id);
     }
-
+    
     @GetMapping("/{id}")
-    List<AvailabilityDAO> getAvailability(@PathVariable int id) {
+    AvailabilitySummaryDAO getAvailability(@PathVariable int id) {
         return localExpertAvailabilityService.getAvailabilitiesByExpertId(id);
     }
 }

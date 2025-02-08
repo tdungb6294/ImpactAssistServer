@@ -1,15 +1,13 @@
 package com.bdserver.impactassist.service;
 
-import com.bdserver.impactassist.model.JwtTokenDAO;
-import com.bdserver.impactassist.model.LoginUserDAO;
-import com.bdserver.impactassist.model.RegisterUserDAO;
-import com.bdserver.impactassist.model.UserDAO;
+import com.bdserver.impactassist.model.*;
 import com.bdserver.impactassist.repo.UserRepo;
 import com.bdserver.impactassist.repo.UserRoleRepo;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -68,5 +66,15 @@ public class UserService {
             }
         }
         throw new UsernameNotFoundException("Refresh token not found");
+    }
+
+    public int getUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+            return userRepo.findByUsername(userPrincipal.getUsername()).getId();
+        } else {
+            throw new UsernameNotFoundException("Not authenticated");
+        }
     }
 }

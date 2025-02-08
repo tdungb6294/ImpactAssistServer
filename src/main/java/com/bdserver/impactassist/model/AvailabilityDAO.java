@@ -10,5 +10,4 @@ public class AvailabilityDAO {
     private LocalTime startTime;
     private LocalTime endTime;
     private String dayOfWeek;
-    private int localExpertId;
 }
