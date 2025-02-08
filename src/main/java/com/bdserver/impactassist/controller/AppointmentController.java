@@ -1,9 +1,13 @@
 package com.bdserver.impactassist.controller;
 
 import com.bdserver.impactassist.model.AppointmentDAO;
+import com.bdserver.impactassist.model.AppointmentStatusEnum;
 import com.bdserver.impactassist.model.RequestAppointmentDAO;
 import com.bdserver.impactassist.model.UpdateAppointmentStatusDAO;
 import com.bdserver.impactassist.service.AppointmentService;
+import jakarta.validation.Valid;
+import org.apache.coyote.BadRequestException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,21 +20,23 @@ public class AppointmentController {
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
-
-    //TODO make it so that you can only register from today to 30 days after today
+    
     @PostMapping()
-    Integer registerAppointment(@RequestBody RequestAppointmentDAO request) {
+    Integer registerAppointment(@Valid @RequestBody RequestAppointmentDAO request) throws BadRequestException {
         return appointmentService.registerAppointment(request);
     }
 
-    //TODO add filtering and sorting capabilities
     @GetMapping
-    List<AppointmentDAO> getAllAppointments(@RequestParam(required = false) Integer userId, @RequestParam(required = false) Integer expertId) {
+    List<AppointmentDAO> getAllAppointments(@RequestParam(required = false) Integer userId,
+                                            @RequestParam(required = false) Integer expertId,
+                                            @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
+                                            @RequestParam(defaultValue = "50") Integer limit,
+                                            @RequestParam(defaultValue = "0") Integer offset) {
         if (userId != null) {
             return appointmentService.getAppointmentsByUserId(userId);
         }
         if (expertId != null) {
-            return appointmentService.getAppointmentsByExpertId(expertId);
+            return appointmentService.getAppointmentsByExpertId(appointmentStatus, limit, offset, expertId);
         }
         return appointmentService.getAllAppointmentsAuthenticated();
     }
@@ -40,7 +46,7 @@ public class AppointmentController {
         return appointmentService.getAppointmentById(id);
     }
 
-    //TODO make it so that only expert can do this
+    @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @PutMapping
     void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) {
         appointmentService.updateAppointmentStatus(updateAppointmentStatusDAO);

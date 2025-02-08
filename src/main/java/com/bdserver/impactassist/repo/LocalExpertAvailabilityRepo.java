@@ -23,6 +23,9 @@ public interface LocalExpertAvailabilityRepo {
     @Delete("DELETE FROM expert_availabilities WHERE id = #{id}")
     void deleteAvailability(int id);
 
+    @Select("SELECT day_of_week FROM expert_availabilities WHERE id = #{id}")
+    String getAvailabilityDayOfWeekById(int id);
+
     @Select("SELECT a.appointment_time AS date, a.availability_id as availabilityId FROM appointments a JOIN expert_availabilities ea ON a.availability_id=ea.id WHERE ea.local_expert_id = #{expertId} AND a.appointment_time > CURRENT_DATE")
     List<UnavailabilityDAO> getUnavailableAppointments(int expertId);
 }

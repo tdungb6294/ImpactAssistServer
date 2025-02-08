@@ -6,6 +6,7 @@ import com.bdserver.impactassist.model.RegisterUserDAO;
 import com.bdserver.impactassist.model.UserDAO;
 import com.bdserver.impactassist.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,12 +21,12 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public Integer register(@RequestBody RegisterUserDAO userDAO) {
+    public Integer register(@Valid @RequestBody RegisterUserDAO userDAO) {
         return userService.registerUser(userDAO);
     }
 
     @PostMapping("/login")
-    public JwtTokenDAO login(@RequestBody LoginUserDAO loginUserDAO) {
+    public JwtTokenDAO login(@Valid @RequestBody LoginUserDAO loginUserDAO) {
         return userService.verify(loginUserDAO);
     }
 
