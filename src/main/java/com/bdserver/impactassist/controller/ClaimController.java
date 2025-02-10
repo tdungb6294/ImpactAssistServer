@@ -1,12 +1,12 @@
 package com.bdserver.impactassist.controller;
 
+import com.bdserver.impactassist.model.ClaimDAO;
+import com.bdserver.impactassist.model.PartialClaimDAO;
 import com.bdserver.impactassist.model.RegisterClaimDAO;
 import com.bdserver.impactassist.service.ClaimService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.coyote.BadRequestException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -21,7 +21,6 @@ public class ClaimController {
         this.claimService = claimService;
     }
 
-    //TODO create repo for sql queries
     @PostMapping
     public Integer registerClaim(@RequestPart("images") List<MultipartFile> files,
                                  @RequestPart("documents") List<MultipartFile> documents,
@@ -29,5 +28,13 @@ public class ClaimController {
         return claimService.registerClaim(files, documents, registerClaimDAO);
     }
 
-    //TODO view claim
+    @GetMapping("/{id}")
+    public ClaimDAO getClaim(@PathVariable Integer id) throws BadRequestException {
+        return claimService.getClaim(id);
+    }
+
+    @GetMapping
+    public List<PartialClaimDAO> getClaims() {
+        return claimService.getClaims();
+    }
 }

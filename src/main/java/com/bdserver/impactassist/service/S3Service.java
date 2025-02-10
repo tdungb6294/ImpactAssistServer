@@ -30,7 +30,7 @@ public class S3Service {
         try {
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket("default")
-                    .key(key.toString())
+                    .key(key.toString() + "_" + file.getOriginalFilename())
                     .build();
             s3Client.putObject(putObjectRequest, RequestBody.fromBytes(file.getBytes()));
         } catch (S3Exception e) {

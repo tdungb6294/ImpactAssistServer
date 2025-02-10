@@ -6,9 +6,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class RegisterClaimDAO {
+    private Integer userId;
     @NotNull
     @Size(min = 1, max = 60)
     private String carModel;
@@ -56,4 +58,6 @@ public class RegisterClaimDAO {
     @NotNull
     @Size(min = 15, max = 34)
     private String internationalBankAccountNumber;
+    @NotNull
+    private List<String> documentTypes;
 }
