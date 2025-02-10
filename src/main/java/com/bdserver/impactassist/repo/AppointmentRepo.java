@@ -7,6 +7,7 @@ import com.bdserver.impactassist.model.UpdateAppointmentStatusDAO;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -29,7 +30,7 @@ public interface AppointmentRepo {
 //            ", a.description as description, a.appointment_time as date, a.appointment_status as appointmentStatus FROM appointments a JOIN expert_availabilities ea ON a.availability_id=ea.id WHERE ea.local_expert_id = #{expertId}" +
 //            " ORDER BY appointment_time, CASE appointment_status WHEN 'PENDING' THEN 1 WHEN 'CONFIRMED' THEN 2 ELSE 3 END")
 //    List<AppointmentDAO> getAllAppointmentsByExpertId(int expertId);
-    List<AppointmentDAO> getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId);
+    List<AppointmentDAO> getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date);
 
     @Select("SELECT id, user_id as userId, availability_id as availabilityId, title, description, appointment_time as date, appointment_status as appointmentStatus FROM appointments WHERE id = #{appointmentId}")
     AppointmentDAO getAppointmentById(int appointmentId);

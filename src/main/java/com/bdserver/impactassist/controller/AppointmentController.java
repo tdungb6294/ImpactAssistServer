@@ -10,6 +10,7 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class AppointmentController {
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
-    
+
     @PostMapping()
     Integer registerAppointment(@Valid @RequestBody RequestAppointmentDAO request) throws BadRequestException {
         return appointmentService.registerAppointment(request);
@@ -31,12 +32,13 @@ public class AppointmentController {
                                             @RequestParam(required = false) Integer expertId,
                                             @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
                                             @RequestParam(defaultValue = "50") Integer limit,
-                                            @RequestParam(defaultValue = "0") Integer offset) {
+                                            @RequestParam(defaultValue = "0") Integer offset,
+                                            @RequestParam(required = false) List<LocalDate> date) {
         if (userId != null) {
             return appointmentService.getAppointmentsByUserId(userId);
         }
         if (expertId != null) {
-            return appointmentService.getAppointmentsByExpertId(appointmentStatus, limit, offset, expertId);
+            return appointmentService.getAppointmentsByExpertId(appointmentStatus, limit, offset, expertId, date);
         }
         return appointmentService.getAllAppointmentsAuthenticated();
     }

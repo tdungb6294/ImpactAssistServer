@@ -6,14 +6,9 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
-public class ClaimDAO {
-    @NotNull
-    private int id;
-    @NotNull
-    private int userId;
+public class RegisterClaimDAO {
     @NotNull
     @Size(min = 1, max = 60)
     private String carModel;
@@ -51,10 +46,6 @@ public class ClaimDAO {
     @NotNull
     @Size(min = 1, max = 20)
     private String weatherCondition;
-    @NotNull
-    private List<@Size(min = 1, max = 100) String> damagedCarPhotoFileNames;
-    @NotNull
-    private List<@Size(min = 1, max = 100) String> documentFileNames;
     @NotNull
     @Size(min = 1, max = 50)
     private String compensationMethod;

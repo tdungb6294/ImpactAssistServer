@@ -9,6 +9,7 @@ import com.bdserver.impactassist.repo.LocalExpertAvailabilityRepo;
 import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,8 +34,8 @@ public class AppointmentService {
         return appointmentRepo.createAvailability(request);
     }
 
-    public List<AppointmentDAO> getAppointmentsByExpertId(List<AppointmentStatusEnum> appointmentStatus, Integer limit, Integer offset, int expertId) {
-        return appointmentRepo.getFilteredAppointments(appointmentStatus, limit, offset, expertId);
+    public List<AppointmentDAO> getAppointmentsByExpertId(List<AppointmentStatusEnum> appointmentStatus, Integer limit, Integer offset, int expertId, List<LocalDate> date) {
+        return appointmentRepo.getFilteredAppointments(appointmentStatus, limit, offset, expertId, date);
     }
 
     public List<AppointmentDAO> getAppointmentsByUserId(int userId) {
