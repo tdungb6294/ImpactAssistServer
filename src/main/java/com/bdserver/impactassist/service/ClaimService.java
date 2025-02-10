@@ -26,8 +26,8 @@ public class ClaimService {
     }
 
     @Transactional
-    public Integer registerClaim(List<MultipartFile> images, List<MultipartFile> documents, RegisterClaimDAO registerClaimDAO) throws IOException {
-        if (registerClaimDAO.getDocumentTypes().size() != documents.size()) {
+    public Integer registerCarClaim(List<MultipartFile> images, List<MultipartFile> documents, RegisterCarClaimDAO registerCarClaimDAO) throws IOException {
+        if (registerCarClaimDAO.getDocumentTypes().size() != documents.size()) {
             throw new BadRequestException();
         }
         List<ClaimImageDAO> claimImages = new ArrayList<>();
@@ -41,15 +41,16 @@ public class ClaimService {
         documents.forEach(document -> {
             UUID uuid = UUID.randomUUID();
             claimDocuments.add(new ClaimDocumentDAO(uuid, document.getOriginalFilename(),
-                    registerClaimDAO.getDocumentTypes().get(index.getAndIncrement())));
+                    registerCarClaimDAO.getDocumentTypes().get(index.getAndIncrement())));
             try {
                 s3Service.uploadFile(document, uuid);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-        registerClaimDAO.setUserId(userService.getUserId());
-        Integer claimId = claimRepo.createNewClaim(registerClaimDAO);
+        Integer claimId = claimRepo.createNewClaim(new ClaimDAO(userService.getUserId(), "Vehicle"));
+        registerCarClaimDAO.setId(claimId);
+        claimRepo.createNewCarClaim(registerCarClaimDAO);
         for (ClaimImageDAO claimImage : claimImages) {
             claimRepo.addClaimImage(claimImage, claimId);
         }
@@ -79,17 +80,17 @@ public class ClaimService {
         return claimAccidentImageUrls;
     }
 
-    public ClaimDAO getClaim(int claimId) throws BadRequestException {
-        ClaimDAO claimDAO = claimRepo.getClaimById(claimId);
-        if (claimDAO == null) {
+    public CarClaimDAO getCarClaim(int claimId) throws BadRequestException {
+        CarClaimDAO carClaimDAO = claimRepo.getCarClaimById(claimId);
+        if (carClaimDAO == null) {
             throw new BadRequestException("No claim with this claim id.");
         }
-        claimDAO.setClaimAccidentImageUrls(getClaimAccidentImageUrls(claimId));
-        claimDAO.setClaimAccidentDocuments(getClaimAccidentDocumentUrls(claimId));
-        return claimDAO;
+        carClaimDAO.setClaimAccidentImageUrls(getClaimAccidentImageUrls(claimId));
+        carClaimDAO.setClaimAccidentDocuments(getClaimAccidentDocumentUrls(claimId));
+        return carClaimDAO;
     }
 
-    public List<PartialClaimDAO> getClaims() {
-        return claimRepo.getClaimsByUserId(userService.getUserId());
+    public List<PartialClaimDAO> getCarClaims() {
+        return claimRepo.getCarClaimsByUserId(userService.getUserId());
     }
 }

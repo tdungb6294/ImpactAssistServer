@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+//TODO claim compensation
 @Data
 public class ClaimCompensationDAO {
     private int id;

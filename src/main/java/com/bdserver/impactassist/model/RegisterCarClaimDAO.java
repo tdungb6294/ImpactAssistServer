@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class RegisterClaimDAO {
-    private Integer userId;
+public class RegisterCarClaimDAO {
+    private int id;
     @NotNull
     @Size(min = 1, max = 60)
     private String carModel;

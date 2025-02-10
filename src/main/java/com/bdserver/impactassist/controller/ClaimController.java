@@ -1,8 +1,8 @@
 package com.bdserver.impactassist.controller;
 
-import com.bdserver.impactassist.model.ClaimDAO;
+import com.bdserver.impactassist.model.CarClaimDAO;
 import com.bdserver.impactassist.model.PartialClaimDAO;
-import com.bdserver.impactassist.model.RegisterClaimDAO;
+import com.bdserver.impactassist.model.RegisterCarClaimDAO;
 import com.bdserver.impactassist.service.ClaimService;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
@@ -21,20 +21,20 @@ public class ClaimController {
         this.claimService = claimService;
     }
 
-    @PostMapping
-    public Integer registerClaim(@RequestPart("images") List<MultipartFile> files,
-                                 @RequestPart("documents") List<MultipartFile> documents,
-                                 @Valid @RequestPart("data") RegisterClaimDAO registerClaimDAO) throws IOException {
-        return claimService.registerClaim(files, documents, registerClaimDAO);
+    @PostMapping("/car")
+    public Integer registerCarClaim(@RequestPart("images") List<MultipartFile> files,
+                                    @RequestPart("documents") List<MultipartFile> documents,
+                                    @Valid @RequestPart("data") RegisterCarClaimDAO registerCarClaimDAO) throws IOException {
+        return claimService.registerCarClaim(files, documents, registerCarClaimDAO);
     }
 
-    @GetMapping("/{id}")
-    public ClaimDAO getClaim(@PathVariable Integer id) throws BadRequestException {
-        return claimService.getClaim(id);
+    @GetMapping("/car/{id}")
+    public CarClaimDAO getCarClaim(@PathVariable Integer id) throws BadRequestException {
+        return claimService.getCarClaim(id);
     }
 
-    @GetMapping
-    public List<PartialClaimDAO> getClaims() {
-        return claimService.getClaims();
+    @GetMapping("/car")
+    public List<PartialClaimDAO> getCarClaims() {
+        return claimService.getCarClaims();
     }
 }
