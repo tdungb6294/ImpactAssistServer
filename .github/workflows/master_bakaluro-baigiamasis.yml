@@ -30,25 +30,24 @@ jobs:
       - name: Run Gradle Build
         run: ./gradlew build -x test
 
-      - name: Log the current directory
-        run: |
-          echo "Current directory is:"
-          pwd  # This will print the current working directory
-          ls -al  # This will list all files in the current directory for better debugging
-
-      - name: Check contents of build/libs after Gradle build
-        run: ls -alh build/libs
+      - name: Upload build/libs as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jar-file
+          path: build/libs/*.jar
 
   build-docker:
     runs-on: 'ubuntu-latest'
     needs: 'build-spring'
 
     steps:
-      - name: Check contents of build/libs after Gradle build
-        run: ls -alh build/libs
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Ensure JAR file has proper permissions
-        run: chmod +r build/libs/*.jar
+      - name: Download JAR file artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: jar-file
 
       - name: Set up Docker Build
         uses: docker/setup-buildx-action@v2
