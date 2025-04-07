@@ -30,6 +30,12 @@ jobs:
       - name: Run Gradle Build
         run: ./gradlew build -x test
 
+      - name: Log the current directory
+        run: |
+          echo "Current directory is:"
+          pwd  # This will print the current working directory
+          ls -al  # This will list all files in the current directory for better debugging
+
   build-docker:
     runs-on: 'ubuntu-latest'
     needs: 'build-spring'
