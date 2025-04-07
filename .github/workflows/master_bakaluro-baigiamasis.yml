@@ -44,6 +44,11 @@ jobs:
     needs: 'build-spring'
 
     steps:
+      - name: Check contents of build/libs after Gradle build
+        run: ls -alh build/libs
+
+      - name: Ensure JAR file has proper permissions
+        run: chmod +r build/libs/*.jar
 
       - name: Set up Docker Build
         uses: docker/setup-buildx-action@v2
