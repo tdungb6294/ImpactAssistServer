@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy container app to Azure Web App - bakaluro-baigiamasis
+name: Build and deploy container app to VPS Web App - bakaluro-baigiamasis
 
 on:
   push:
@@ -10,42 +7,69 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-spring:
     runs-on: 'ubuntu-latest'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 23
+        uses: actions/setup-java@v4
+        with:
+          java-version: 23
+          distribution: 'openjdk'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.12.1"
+
+      - name: Run Gradle Build
+        run: ./gradlew build -x test
+  
+  build-docker:
+    runs-on: 'ubuntu-latest'
+    needs: 'build-spring'
 
     steps:
-    - uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+      - name: Set up Docker Build
+        uses: docker/setup-buildx-action@v2
 
-    - name: Log in to registry
-      uses: docker/login-action@v2
-      with:
-        registry: https://thedungb.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8cc7915f41414f3d8f09216711f12330 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_096f86385eef4fe0b780c97313a293c6 }}
+      - name: Log in to registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push container image to registry
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: thedungb.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8cc7915f41414f3d8f09216711f12330 }}/spring-server:${{ github.sha }}
-        file: ./Dockerfile
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_CONTAINER_NAME }}/spring-server:latest
+          file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    needs: build-docker
 
     steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'bakaluro-baigiamasis'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3e748e1e02d74be2a72a55001865e2af }}
-        images: 'thedungb.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8cc7915f41414f3d8f09216711f12330 }}/spring-server:${{ github.sha }}'
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/deploy.key
+          chmod 600 ~/.ssh/deploy.key
+          cat >>~/.ssh/config <<END
+          Host deploy
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      - name: Pull Docker image from registry on VPS (Run redeploy.sh)
+        run: ssh deploy 'bash ~/redeploy.sh'

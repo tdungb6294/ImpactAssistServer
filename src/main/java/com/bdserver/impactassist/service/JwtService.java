@@ -3,14 +3,10 @@ package com.bdserver.impactassist.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.impl.lang.Function;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
+import java.security.KeyPair;
+import java.security.PublicKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,19 +14,13 @@ import java.util.Map;
 @Service
 public class JwtService {
 
-    private final String accessSecretKey;
-    private final String refreshSecretKey;
+    private final KeyPair accessKeyPair;
+    private final KeyPair refreshKeyPair;
 
     public JwtService() {
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacSHA256");
-            SecretKey key = keyGenerator.generateKey();
-            accessSecretKey = Base64.getEncoder().encodeToString(key.getEncoded());
-            key = keyGenerator.generateKey();
-            refreshSecretKey = Base64.getEncoder().encodeToString(key.getEncoded());
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+        accessKeyPair = Jwts.SIG.EdDSA.keyPair().build();
+        refreshKeyPair = Jwts.SIG.EdDSA.keyPair().build();
+        System.out.println(accessKeyPair.getPublic().toString());
     }
 
     public String generateAccessToken(int userId) {
@@ -42,18 +32,12 @@ public class JwtService {
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 10))
                 .and()
-                .signWith(getAccessKey(), Jwts.SIG.HS256)
+                .signWith(accessKeyPair.getPrivate(), Jwts.SIG.EdDSA)
                 .compact();
     }
 
-    private SecretKey getAccessKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(accessSecretKey);
-        return Keys.hmacShaKeyFor(keyBytes);
-    }
-
-    private SecretKey getRefreshKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(refreshSecretKey);
-        return Keys.hmacShaKeyFor(keyBytes);
+    public PublicKey getAccessPublicKey() {
+        return accessKeyPair.getPublic();
     }
 
     public Integer extractUserId(String token) {
@@ -68,7 +52,7 @@ public class JwtService {
     public Claims extractAllClaims(String token) {
         return Jwts
                 .parser()
-                .verifyWith(getAccessKey())
+                .verifyWith(accessKeyPair.getPublic())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -101,7 +85,7 @@ public class JwtService {
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7))
                 .and()
-                .signWith(getRefreshKey(), Jwts.SIG.HS256)
+                .signWith(refreshKeyPair.getPrivate(), Jwts.SIG.EdDSA)
                 .compact();
     }
 
@@ -117,7 +101,7 @@ public class JwtService {
     public Claims extractRefreshAllClaims(String token) {
         return Jwts
                 .parser()
-                .verifyWith(getRefreshKey())
+                .verifyWith(refreshKeyPair.getPublic())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();

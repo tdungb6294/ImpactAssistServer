@@ -48,6 +48,7 @@ public class AppointmentController {
         return appointmentService.getAppointmentById(id);
     }
 
+    //TODO make this validate expert, because now we have any expert
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @PutMapping
     void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) {

@@ -32,7 +32,7 @@ CREATE TABLE appointments (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-INSERT INTO users (id, full_name, password, email) VALUES (1, 'John Bosch', 'nothashed', 'john.bosch@gmail.com');
+INSERT INTO users (full_name, password, email) VALUES ('John Bosch', 'nothashed', 'john.bosch@gmail.com');
 INSERT INTO user_roles(user_id, role_id) VALUES (1, 1);
 INSERT INTO user_roles(user_id, role_id) VALUES (1, 2);
 INSERT INTO local_experts(user_id, latitude, longitude, description) VALUES (1, 54.723859, 25.337367, 'Professional garage manager');
