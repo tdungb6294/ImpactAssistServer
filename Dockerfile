@@ -4,9 +4,9 @@ FROM openjdk:23-jdk
 # Set the working directory inside the container to /app
 WORKDIR /app
 
-# Copy the jar file into the container's working directory
-# This assumes that the .jar file is in the root of your project
-COPY target/*.jar /app/app.jar
+# Copy the jar file from the root of your project directory to /app/app.jar
+# This assumes your .jar file is located in the root of your project
+COPY *.jar /app/app.jar
 
 # Expose port 8080 (assuming your app runs on this port)
 EXPOSE 8080
