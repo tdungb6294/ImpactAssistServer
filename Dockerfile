@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the jar file from the root of your project directory to /app/app.jar
 # This assumes your .jar file is located in the root of your project
-COPY *.jar /app/app.jar
+COPY /build/libs/*.jar /app/app.jar
 
 # Expose port 8080 (assuming your app runs on this port)
 EXPOSE 8080
