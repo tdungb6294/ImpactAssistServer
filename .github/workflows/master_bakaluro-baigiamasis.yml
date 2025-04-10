@@ -60,6 +60,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
           file: ./Dockerfile
+          context: .
 
   deploy:
     runs-on: ubuntu-latest
