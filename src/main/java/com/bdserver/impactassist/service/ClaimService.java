@@ -5,13 +5,17 @@ import com.bdserver.impactassist.repo.ClaimRepo;
 import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Service
 public class ClaimService {
@@ -92,5 +96,31 @@ public class ClaimService {
 
     public List<PartialClaimDAO> getCarClaims() {
         return claimRepo.getCarClaimsByUserId(userService.getUserId());
+    }
+
+    public MultiValueMap<String, Object> getClaimDetails(int claimId) throws IOException {
+        MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+        CarClaimMultipartDAO carClaim = claimRepo.getCarClaimDetailsById(claimId);
+        if (carClaim == null) {
+            throw new BadRequestException("No claim with this claim id.");
+        }
+        List<PartialClaimDocumentDAO> claimAccidentDocumentNames = claimRepo.getClaimAccidentDocumentNames(claimId);
+        List<String> claimAccidentImages = claimRepo.getClaimAccidentImageNames(claimId);
+        List<String> claimAccidentDocuments = claimAccidentDocumentNames.stream().map(PartialClaimDocumentDAO::getUrl).collect(Collectors.toList());
+        carClaim.setClaimAccidentDocuments(claimAccidentDocuments);
+        carClaim.setClaimAccidentImages(claimAccidentImages);
+        Map<String, Object> jsonData = Map.of("carClaim", carClaim);
+        body.add("carClaim", jsonData);
+        for (String document : claimAccidentDocuments) {
+            byte[] file = s3Service.downloadFile(document);
+            String[] documentParts = document.split("_");
+            body.add(documentParts.length > 1 ? documentParts[1] : document, file);
+        }
+        for (String image : claimAccidentImages) {
+            byte[] file = s3Service.downloadFile(image);
+            String[] imageParts = image.split("_");
+            body.add(imageParts.length > 1 ? imageParts[1] : image, file);
+        }
+        return body;
     }
 }

@@ -49,4 +49,13 @@ public interface ClaimRepo {
 
     @Select("SELECT CONCAT(unique_file_identifier, '_', file_name) FROM claims_accident_images WHERE claim_id = #{claimId}")
     List<String> getClaimAccidentImageNames(int claimId);
+
+    @Select("SELECT cc.id as id, c.user_id as userId, cc.vehicle_registration_number as vehicleRegistrationNumber, cc.vehicle_identification_number as vehicleIdentificationNumber, " +
+            "cc.odometer_mileage as odometerMileage, cc.insurance_policy_number as insurancePolicyNumber, cc.insurance_company AS insuranceCompany, " +
+            "cc.accident_datetime as accidentDatetime, cc.location_longitude as locationLongitude, cc.location_latitude AS locationLatitude, " +
+            "cc.address as address, cc.description as description, cc.police_involved as policeInvolved, cc.police_report_number as policeReportNumber," +
+            "cc.weather_condition as weatherCondition, cc.compensation_method as compensationMethod, cc.additional_notes as additionalNotes," +
+            "cc.data_management_consent as dataManagementConsent, cc.international_bank_account_number as internationalBankAccountNumber," +
+            "cc.created_at as createdAt, cc.updated_at as updatedAt FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.id = #{id}")
+    CarClaimMultipartDAO getCarClaimDetailsById(int claimId);
 }
