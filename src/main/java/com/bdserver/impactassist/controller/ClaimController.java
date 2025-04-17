@@ -1,7 +1,6 @@
 package com.bdserver.impactassist.controller;
 
 import com.bdserver.impactassist.model.CarClaimDAO;
-import com.bdserver.impactassist.model.PartialClaimDAO;
 import com.bdserver.impactassist.model.RegisterCarClaimDAO;
 import com.bdserver.impactassist.service.ClaimService;
 import jakarta.validation.Valid;
@@ -14,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("claim")
@@ -37,8 +37,8 @@ public class ClaimController {
     }
 
     @GetMapping("/car")
-    public List<PartialClaimDAO> getCarClaims() {
-        return claimService.getCarClaims();
+    public Map<String, Object> getCarClaims(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
+        return claimService.getCarClaims(page, size);
     }
 
     @GetMapping("/car-details/{id}")

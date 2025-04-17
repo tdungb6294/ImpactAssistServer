@@ -28,4 +28,5 @@ public class CarClaimDAO {
     private String additionalNotes;
     private boolean dataManagementConsent;
     private String internationalBankAccountNumber;
+    private ClaimStatus claimStatus;
 }

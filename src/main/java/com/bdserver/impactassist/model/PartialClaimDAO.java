@@ -10,4 +10,5 @@ public class PartialClaimDAO {
     private String carModel;
     private LocalDateTime accidentDatetime;
     private String address;
+    private ClaimStatus claimStatus;
 }

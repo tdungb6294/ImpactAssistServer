@@ -1,0 +1,2 @@
+ALTER TABLE claims
+    ADD COLUMN claim_status VARCHAR(20) NOT NULL;

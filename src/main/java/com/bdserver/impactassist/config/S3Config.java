@@ -29,7 +29,7 @@ public class S3Config {
     public S3Presigner s3Presigner() {
         AwsBasicCredentials credentials = AwsBasicCredentials.create("minio", "minio123");
         return S3Presigner.builder()
-                .endpointOverride(URI.create("http://localhost:9000/default"))
+                .endpointOverride(URI.create("http://192.168.1.92:9000"))
                 .s3Client(s3Client())
                 .credentialsProvider(StaticCredentialsProvider.create(credentials))
                 .region(Region.EU_NORTH_1)

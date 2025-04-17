@@ -8,4 +8,5 @@ import lombok.Data;
 public class ClaimDAO {
     private int userId;
     private String claimType;
+    private ClaimStatus claimStatus;
 }

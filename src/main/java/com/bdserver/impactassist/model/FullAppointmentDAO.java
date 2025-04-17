@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-public class AppointmentDAO {
+public class FullAppointmentDAO {
     private int id;
     private String title;
     private String description;
@@ -19,4 +19,5 @@ public class AppointmentDAO {
     private DayOfWeekEnum dayOfWeek;
     private double latitude;
     private double longitude;
+    private String fullName;
 }

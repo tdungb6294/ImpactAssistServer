@@ -1,7 +1,7 @@
 package com.bdserver.impactassist.controller;
 
-import com.bdserver.impactassist.model.AppointmentDAO;
 import com.bdserver.impactassist.model.AppointmentStatusEnum;
+import com.bdserver.impactassist.model.FullAppointmentDAO;
 import com.bdserver.impactassist.model.RequestAppointmentDAO;
 import com.bdserver.impactassist.model.UpdateAppointmentStatusDAO;
 import com.bdserver.impactassist.service.AppointmentService;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("appointment")
@@ -28,23 +29,22 @@ public class AppointmentController {
     }
 
     @GetMapping
-    List<AppointmentDAO> getAllAppointments(@RequestParam(required = false) Integer userId,
-                                            @RequestParam(required = false) Integer expertId,
-                                            @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
-                                            @RequestParam(defaultValue = "50") Integer limit,
-                                            @RequestParam(defaultValue = "0") Integer offset,
-                                            @RequestParam(required = false) List<LocalDate> date) {
+    Map<String, Object> getAllAppointments(@RequestParam(required = false) Integer userId,
+                                           @RequestParam(required = false) Integer expertId,
+                                           @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
+                                           @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size,
+                                           @RequestParam(required = false) List<LocalDate> date) {
         if (userId != null) {
-            return appointmentService.getAppointmentsByUserId(userId);
+            return appointmentService.getAppointmentsByUserId(userId, page, size);
         }
         if (expertId != null) {
-            return appointmentService.getAppointmentsByExpertId(appointmentStatus, limit, offset, expertId, date);
+            return appointmentService.getAppointmentsByExpertId(appointmentStatus, expertId, date, page, size);
         }
-        return appointmentService.getAllAppointmentsAuthenticated();
+        return appointmentService.getAllAppointmentsAuthenticated(page, size);
     }
 
     @GetMapping("/{id}")
-    AppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
+    FullAppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
         return appointmentService.getAppointmentById(id);
     }
 

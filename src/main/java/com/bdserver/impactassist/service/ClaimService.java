@@ -10,10 +10,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -52,7 +49,7 @@ public class ClaimService {
                 throw new RuntimeException(e);
             }
         });
-        Integer claimId = claimRepo.createNewClaim(new ClaimDAO(userService.getUserId(), "Vehicle"));
+        Integer claimId = claimRepo.createNewClaim(new ClaimDAO(userService.getUserId(), "Vehicle", ClaimStatus.PENDING));
         registerCarClaimDAO.setId(claimId);
         claimRepo.createNewCarClaim(registerCarClaimDAO);
         for (ClaimImageDAO claimImage : claimImages) {
@@ -96,6 +93,21 @@ public class ClaimService {
 
     public List<PartialClaimDAO> getCarClaims() {
         return claimRepo.getCarClaimsByUserId(userService.getUserId());
+    }
+
+    public Map<String, Object> getCarClaims(int page, int size) {
+        int offset = (page - 1) * size;
+        int userId = userService.getUserId();
+        List<PartialClaimDAO> claims = claimRepo.getPagedCarClaimsByUserId(userId, offset, size);
+        int total = claimRepo.getCarClaimsCount(userId);
+        boolean hasMore = offset + size < total;
+        Map<String, Object> result = new HashMap<>();
+        result.put("claims", claims);
+        result.put("currentPage", page);
+        result.put("nextPage", hasMore ? page + 1 : null);
+        result.put("totalPages", (int) Math.ceil((double) total / (double) size));
+        result.put("total", total);
+        return result;
     }
 
     public MultiValueMap<String, Object> getClaimDetails(int claimId) throws IOException {

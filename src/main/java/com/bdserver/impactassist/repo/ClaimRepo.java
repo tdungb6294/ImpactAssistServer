@@ -3,6 +3,7 @@ package com.bdserver.impactassist.repo;
 import com.bdserver.impactassist.model.*;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface ClaimRepo {
-    @Select("INSERT INTO claims (user_id, claim_type) VALUES (#{userId}, #{claimType}) RETURNING id")
+    @Select("INSERT INTO claims (user_id, claim_type, claim_status) VALUES (#{userId}, #{claimType}, #{claimStatus}) RETURNING id")
     Integer createNewClaim(ClaimDAO claimDAO);
 
     @Insert("INSERT INTO car_claims (id, car_model, vehicle_registration_number, vehicle_identification_number," +
@@ -35,13 +36,19 @@ public interface ClaimRepo {
     @Select("SELECT cc.id, cc.car_model as carModel, cc.accident_datetime as accidentDatetime, cc.address FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId}")
     List<PartialClaimDAO> getCarClaimsByUserId(int userId);
 
-    @Select("SELECT cc.id as id, c.user_id as userId, cc.vehicle_registration_number as vehicleRegistrationNumber, cc.vehicle_identification_number as vehicleIdentificationNumber, " +
+    @Select("SELECT cc.id, cc.car_model as carModel, cc.accident_datetime as accidentDatetime, cc.address, c.claim_status as claimStatus FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId} ORDER BY c.created_at DESC LIMIT #{limit} OFFSET #{offset}")
+    List<PartialClaimDAO> getPagedCarClaimsByUserId(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
+
+    @Select("SELECT COUNT(*) FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId}")
+    int getCarClaimsCount(int userId);
+
+    @Select("SELECT cc.id as id, cc.car_model as carModel, c.user_id as userId, cc.vehicle_registration_number as vehicleRegistrationNumber, cc.vehicle_identification_number as vehicleIdentificationNumber, " +
             "cc.odometer_mileage as odometerMileage, cc.insurance_policy_number as insurancePolicyNumber, cc.insurance_company AS insuranceCompany, " +
             "cc.accident_datetime as accidentDatetime, cc.location_longitude as locationLongitude, cc.location_latitude AS locationLatitude, " +
             "cc.address as address, cc.description as description, cc.police_involved as policeInvolved, cc.police_report_number as policeReportNumber," +
             "cc.weather_condition as weatherCondition, cc.compensation_method as compensationMethod, cc.additional_notes as additionalNotes," +
             "cc.data_management_consent as dataManagementConsent, cc.international_bank_account_number as internationalBankAccountNumber," +
-            "cc.created_at as createdAt, cc.updated_at as updatedAt FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.id = #{id}")
+            "cc.created_at as createdAt, cc.updated_at as updatedAt, c.claim_status as claimStatus FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.id = #{id}")
     CarClaimDAO getCarClaimById(int id);
 
     @Select("SELECT CONCAT(unique_file_identifier, '_', file_name) AS url, document_type as documentType FROM claims_accident_documents WHERE claim_id = #{claimId}")
