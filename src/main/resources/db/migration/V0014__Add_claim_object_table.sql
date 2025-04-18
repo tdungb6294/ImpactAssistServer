@@ -1,0 +1,27 @@
+CREATE TABLE object_claims
+(
+    id                                INT              NOT NULL,
+    user_id                           INT              NOT NULL,
+    object_type                       VARCHAR(50)      NOT NULL,
+    object_material                   VARCHAR(50)      NOT NULL,
+    object_ownership                  VARCHAR(100)     NOT NULL,
+    damage_to_object_description      TEXT             NOT NULL,
+    insurance_policy_number           VARCHAR(30)      NOT NULL,
+    insurance_company                 VARCHAR(50)      NOT NULL,
+    accident_datetime                 TIMESTAMP        NOT NULL,
+    location_longitude                DOUBLE PRECISION NOT NULL,
+    location_latitude                 DOUBLE PRECISION NOT NULL,
+    address                           VARCHAR(200)     NOT NULL,
+    description                       TEXT             NOT NULL,
+    police_involved                   BOOLEAN          NOT NULL,
+    police_report_number              VARCHAR(50),
+    weather_condition                 VARCHAR(20)      NOT NULL,
+    compensation_method               VARCHAR(50)      NOT NULL,
+    additional_notes                  TEXT             NOT NULL,
+    data_management_consent           BOOLEAN          NOT NULL,
+    international_bank_account_number VARCHAR(34)      NOT NULL,
+    created_at                        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at                        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (id) REFERENCES claims (id)
+);

@@ -5,12 +5,10 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class PartialClaimDAO {
+public class PartialCarClaimDAO {
     private int id;
-    private ClaimStatus claimStatus;
-    private String claimType;
     private String carModel;
     private LocalDateTime accidentDatetime;
     private String address;
-    private String objectType;
+    private ClaimStatus claimStatus;
 }

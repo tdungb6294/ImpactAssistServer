@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface ClaimRepo {
+
     @Select("INSERT INTO claims (user_id, claim_type, claim_status) VALUES (#{userId}, #{claimType}, #{claimStatus}) RETURNING id")
     Integer createNewClaim(ClaimDAO claimDAO);
 
@@ -34,10 +35,10 @@ public interface ClaimRepo {
     void addClaimDocument(ClaimDocumentDAO claimDocumentDAO, Integer claimId);
 
     @Select("SELECT cc.id, cc.car_model as carModel, cc.accident_datetime as accidentDatetime, cc.address FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId}")
-    List<PartialClaimDAO> getCarClaimsByUserId(int userId);
+    List<PartialCarClaimDAO> getCarClaimsByUserId(int userId);
 
     @Select("SELECT cc.id, cc.car_model as carModel, cc.accident_datetime as accidentDatetime, cc.address, c.claim_status as claimStatus FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId} ORDER BY c.created_at DESC LIMIT #{limit} OFFSET #{offset}")
-    List<PartialClaimDAO> getPagedCarClaimsByUserId(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
+    List<PartialCarClaimDAO> getPagedCarClaimsByUserId(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
 
     @Select("SELECT COUNT(*) FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.user_id = #{userId}")
     int getCarClaimsCount(int userId);
@@ -65,4 +66,31 @@ public interface ClaimRepo {
             "cc.data_management_consent as dataManagementConsent, cc.international_bank_account_number as internationalBankAccountNumber," +
             "cc.created_at as createdAt, cc.updated_at as updatedAt FROM car_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.id = #{id}")
     CarClaimMultipartDAO getCarClaimDetailsById(int claimId);
+
+    @Select("SELECT c.id, cc.car_model as carModel, " +
+            "CASE WHEN oc.accident_datetime IS NOT NULL THEN oc.accident_datetime WHEN cc.accident_datetime IS NOT NULL THEN cc.accident_datetime ELSE NULL END AS accidentDatetime, " +
+            "CASE WHEN oc.address IS NOT NULL THEN oc.address WHEN cc.address IS NOT NULL THEN cc.address ELSE NULL END AS address, " +
+            "c.claim_status as claimStatus, c.claim_type as claimType, oc.object_type as objectType FROM claims c LEFT JOIN car_claims cc ON cc.id = c.id LEFT JOIN object_claims oc ON c.id = oc.id WHERE c.user_id = #{userId} ORDER BY c.created_at DESC LIMIT #{limit} OFFSET #{offset}")
+    List<PartialClaimDAO> getPagedClaimsByUserId(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
+
+    @Select("SELECT cc.id as id, cc.object_type as objectType, cc.object_material as objectMaterial, cc.object_ownership as objectOwnership, cc.damage_to_object_description as damageToObjectDescription, cc.insurance_policy_number as insurancePolicyNumber, cc.insurance_company AS insuranceCompany, " +
+            "cc.accident_datetime as accidentDatetime, cc.location_longitude as locationLongitude, cc.location_latitude AS locationLatitude, " +
+            "cc.address as address, cc.description as description, cc.police_involved as policeInvolved, cc.police_report_number as policeReportNumber," +
+            "cc.weather_condition as weatherCondition, cc.compensation_method as compensationMethod, cc.additional_notes as additionalNotes," +
+            "cc.data_management_consent as dataManagementConsent, cc.international_bank_account_number as internationalBankAccountNumber," +
+            "cc.created_at as createdAt, cc.updated_at as updatedAt, c.claim_status as claimStatus FROM object_claims cc LEFT JOIN claims c ON cc.id = c.id WHERE c.id = #{id}")
+    ObjectClaimDAO getObjectClaimById(Integer claimId);
+
+    @Insert("INSERT INTO object_claims (id, object_type, object_material, object_ownership," +
+            "damage_to_object_description, insurance_policy_number, insurance_company, accident_datetime, location_longitude," +
+            "location_latitude, address, description, police_involved, police_report_number, weather_condition," +
+            "compensation_method, additional_notes, data_management_consent, international_bank_account_number) VALUES (" +
+            "#{id}, #{objectType}, #{objectMaterial}, #{objectOwnership}, " +
+            "#{damageToObjectDescription}, #{insurancePolicyNumber}, #{insuranceCompany}, #{accidentDatetime}, #{locationLongitude}," +
+            "#{locationLatitude}, #{address}, #{description}, #{policeInvolved}, #{policeReportNumber}, #{weatherCondition}," +
+            "#{compensationMethod}, #{additionalNotes}, #{dataManagementConsent}, #{internationalBankAccountNumber})")
+    void createNewObjectClaim(RegisterObjectClaimDAO registerObjectClaimDAO);
+
+    @Select("SELECT COUNT(*) FROM claims c LEFT JOIN car_claims cc ON cc.id = c.id LEFT JOIN object_claims oc ON oc.id = c.id WHERE c.user_id = #{userId}")
+    int getClaimsCount(int userId);
 }

@@ -1,7 +1,9 @@
 package com.bdserver.impactassist.controller;
 
 import com.bdserver.impactassist.model.CarClaimDAO;
+import com.bdserver.impactassist.model.ObjectClaimDAO;
 import com.bdserver.impactassist.model.RegisterCarClaimDAO;
+import com.bdserver.impactassist.model.RegisterObjectClaimDAO;
 import com.bdserver.impactassist.service.ClaimService;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
@@ -31,6 +33,13 @@ public class ClaimController {
         return claimService.registerCarClaim(files, documents, registerCarClaimDAO);
     }
 
+    @PostMapping("/object")
+    public Integer registerObjectClaim(@RequestPart("images") List<MultipartFile> files,
+                                       @RequestPart("documents") List<MultipartFile> documents,
+                                       @Valid @RequestPart("data") RegisterObjectClaimDAO registerObjectClaimDAO) throws IOException {
+        return claimService.registerObjectClaim(files, documents, registerObjectClaimDAO);
+    }
+
     @GetMapping("/car/{id}")
     public CarClaimDAO getCarClaim(@PathVariable Integer id) throws BadRequestException {
         return claimService.getCarClaim(id);
@@ -47,5 +56,15 @@ public class ClaimController {
         return ResponseEntity.ok()
                 .contentType(MediaType.MULTIPART_FORM_DATA)
                 .body(claimDetails);
+    }
+
+    @GetMapping
+    public Map<String, Object> getClaims(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
+        return claimService.getClaims(page, size);
+    }
+
+    @GetMapping("/object/{id}")
+    public ObjectClaimDAO getObjectClaim(@PathVariable Integer id) throws BadRequestException {
+        return claimService.getObjectClaim(id);
     }
 }

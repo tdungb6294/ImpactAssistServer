@@ -1,0 +1,1 @@
+ALTER TABLE object_claims DROP CONSTRAINT object_claims_user_id_fkey, DROP COLUMN user_id;
