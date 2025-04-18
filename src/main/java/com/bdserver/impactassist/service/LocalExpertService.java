@@ -17,4 +17,8 @@ public class LocalExpertService {
     public List<ResponseLocalExpertDAO> getLocalExpertList() {
         return localExpertRepo.getLocalExpertList();
     }
+
+    public ResponseLocalExpertDAO getLocalExpertById(int id) {
+        return localExpertRepo.getLocalExpertById(id);
+    }
 }

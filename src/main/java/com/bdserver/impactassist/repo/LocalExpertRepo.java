@@ -12,4 +12,7 @@ import java.util.List;
 public interface LocalExpertRepo {
     @Select("SELECT id, full_name as fullName, email, phone, longitude, latitude, description FROM local_experts le JOIN users u ON le.user_id=u.id")
     List<ResponseLocalExpertDAO> getLocalExpertList();
+
+    @Select("SELECT id, full_name as fullName, email, phone, longitude, latitude, description FROM local_experts le JOIN users u ON le.user_id=u.id WHERE le.user_id = #{id}")
+    ResponseLocalExpertDAO getLocalExpertById(int id);
 }
