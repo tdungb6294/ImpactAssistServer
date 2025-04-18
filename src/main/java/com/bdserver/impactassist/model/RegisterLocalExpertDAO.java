@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class RegisterUserDAO {
+public class RegisterLocalExpertDAO {
     @NotNull
     @Size(min = 1, max = 100)
     private String fullName;
@@ -21,5 +21,9 @@ public class RegisterUserDAO {
     private String email;
     @Size(min = 1, max = 100)
     private String phone;
+    private double latitude;
+    private double longitude;
+    @Size(min = 1, max = 300)
+    private String description;
+    private int userId;
 }
-

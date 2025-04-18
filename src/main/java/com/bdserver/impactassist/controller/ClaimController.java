@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -66,5 +67,11 @@ public class ClaimController {
     @GetMapping("/object/{id}")
     public ObjectClaimDAO getObjectClaim(@PathVariable Integer id) throws BadRequestException {
         return claimService.getObjectClaim(id);
+    }
+
+    @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
+    @GetMapping("/local-expert")
+    public Map<String, Object> getPartialClaimsLocalExpert(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
+        return claimService.getSharedClaims(page, size);
     }
 }

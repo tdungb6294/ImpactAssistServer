@@ -93,4 +93,16 @@ public interface ClaimRepo {
 
     @Select("SELECT COUNT(*) FROM claims c LEFT JOIN car_claims cc ON cc.id = c.id LEFT JOIN object_claims oc ON oc.id = c.id WHERE c.user_id = #{userId}")
     int getClaimsCount(int userId);
+
+    @Select("SELECT c.id, cc.car_model as carModel, " +
+            "CASE WHEN oc.accident_datetime IS NOT NULL THEN oc.accident_datetime WHEN cc.accident_datetime IS NOT NULL THEN cc.accident_datetime ELSE NULL END AS accidentDatetime, " +
+            "CASE WHEN oc.address IS NOT NULL THEN oc.address WHEN cc.address IS NOT NULL THEN cc.address ELSE NULL END AS address, " +
+            "c.claim_status as claimStatus, c.claim_type as claimType, oc.object_type as objectType FROM claims c " +
+            "LEFT JOIN car_claims cc ON cc.id = c.id " +
+            "LEFT JOIN object_claims oc ON c.id = oc.id " +
+            "WHERE c.shared_id = #{userId} ORDER BY c.created_at DESC LIMIT #{limit} OFFSET #{offset}")
+    List<PartialClaimDAO> getPagedClaimsByLocalExpertId(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
+
+    @Select("SELECT COUNT(*) FROM claims WHERE shared_id = #{userId}")
+    int getClaimsLocalExpertCount(int userId);
 }

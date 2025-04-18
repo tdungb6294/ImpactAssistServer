@@ -4,6 +4,7 @@ import com.bdserver.impactassist.model.*;
 import com.bdserver.impactassist.repo.AppointmentRepo;
 import com.bdserver.impactassist.repo.LocalExpertAvailabilityRepo;
 import org.apache.coyote.BadRequestException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -33,7 +34,9 @@ public class AppointmentService {
         return appointmentRepo.createAvailability(request);
     }
 
-    public Map<String, Object> getAppointmentsByExpertId(List<AppointmentStatusEnum> appointmentStatus, int expertId, List<LocalDate> date, int page, int size) {
+    @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
+    public Map<String, Object> getAppointmentsByExpertId(List<AppointmentStatusEnum> appointmentStatus, List<LocalDate> date, int page, int size) {
+        int expertId = userService.getUserId();
         int offset = (page - 1) * size;
         List<AppointmentDAO> appointments = appointmentRepo.getFilteredAppointments(appointmentStatus, size, offset, expertId, date);
         Integer count = appointmentRepo.getFilteredAppointmentsCount(appointmentStatus, size, offset, expertId, date);
@@ -79,7 +82,17 @@ public class AppointmentService {
         return appointmentRepo.getAppointmentById(id);
     }
 
-    public void updateAppointmentStatus(UpdateAppointmentStatusDAO update) {
-        appointmentRepo.updateAvailabilityStatus(update);
+    public void updateAppointmentStatus(UpdateAppointmentStatusDAO update) throws BadRequestException {
+        Boolean isBelongingToExpert = isBelongingToExpert(update.getAppointmentId());
+        if (isBelongingToExpert != null && isBelongingToExpert) {
+            appointmentRepo.updateAvailabilityStatus(update);
+        } else {
+            throw new BadRequestException();
+        }
+    }
+
+    public Boolean isBelongingToExpert(int availabilityId) {
+        int userId = userService.getUserId();
+        return localExpertAvailabilityRepo.getAvailabilitiesByUserId(userId, availabilityId);
     }
 }

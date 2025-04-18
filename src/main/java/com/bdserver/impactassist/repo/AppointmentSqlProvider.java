@@ -61,7 +61,6 @@ public class AppointmentSqlProvider {
                         WHERE("appointment_time BETWEEN '" + date.getFirst().toString() + "' AND '" + date.get(1).toString() + "'");
                     }
                 }
-                GROUP_BY("a.id");
             }
         } + " LIMIT #{limit} OFFSET #{offset}";
     }

@@ -8,4 +8,5 @@ import lombok.Data;
 public class JwtTokenDAO {
     private String accessToken;
     private String refreshToken;
+    private String role;
 }

@@ -24,7 +24,7 @@ public class AdminUserSetup implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (userRepo.findByUsername("admin@email.com") == null) {
-            RegisterUserDAO user = new RegisterUserDAO("admin", "admin", "admin@email.com");
+            RegisterUserDAO user = new RegisterUserDAO("admin", "admin", "admin@email.com", "+5456515651651651");
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             Integer userId = userRepo.createUser(user);
             System.out.println(userId);

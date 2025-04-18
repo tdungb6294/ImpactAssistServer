@@ -16,4 +16,7 @@ public interface UserRoleRepo {
 
     @Select("SELECT role_id AS id, name FROM user_roles ur JOIN roles r ON ur.role_id = r.id WHERE user_id = #{userId}")
     List<RoleDAO> getUserRolesByUserId(int userId);
+
+    @Select("SELECT name FROM user_roles ur JOIN roles r ON ur.role_id = r.id WHERE user_id=#{userId}")
+    String getUserRoleNameByUserId(int userId);
 }

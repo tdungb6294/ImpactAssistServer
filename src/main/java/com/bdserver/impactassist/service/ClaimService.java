@@ -196,4 +196,19 @@ public class ClaimService {
         }
         return claimId;
     }
+
+    public Map<String, Object> getSharedClaims(int page, int size) {
+        int offset = (page - 1) * size;
+        int userId = userService.getUserId();
+        List<PartialClaimDAO> claims = claimRepo.getPagedClaimsByLocalExpertId(userId, offset, size);
+        int total = claimRepo.getClaimsLocalExpertCount(userId);
+        boolean hasMore = offset + size < total;
+        Map<String, Object> result = new HashMap<>();
+        result.put("claims", claims);
+        result.put("currentPage", page);
+        result.put("nextPage", hasMore ? page + 1 : null);
+        result.put("totalPages", (int) Math.ceil((double) total / (double) size));
+        result.put("total", total);
+        return result;
+    }
 }

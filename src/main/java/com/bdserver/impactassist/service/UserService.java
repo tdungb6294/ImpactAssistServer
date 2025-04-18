@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,7 +33,6 @@ public class UserService {
     public Integer registerUser(RegisterUserDAO user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Integer userId = userRepo.createUser(user);
-        System.out.println(userId);
         userRoleRepo.createUser(userId, 1);
         return userId;
     }
@@ -47,7 +47,7 @@ public class UserService {
         if (authentication.isAuthenticated() && user != null) {
             String accessToken = jwtService.generateAccessToken(user.getId());
             String refreshToken = jwtService.generateRefreshToken(user.getId());
-            return new JwtTokenDAO(accessToken, refreshToken);
+            return new JwtTokenDAO(accessToken, refreshToken, userRoleRepo.getUserRoleNameByUserId(user.getId()));
         }
 
         throw new UsernameNotFoundException("User not found");
@@ -76,5 +76,23 @@ public class UserService {
         } else {
             throw new UsernameNotFoundException("Not authenticated");
         }
+    }
+
+    @Transactional
+    public Integer registerLocalExpertUser(RegisterLocalExpertDAO user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        Integer userId = userRepo.createUser(new RegisterUserDAO(user.getFullName(), user.getPassword(), user.getEmail(), user.getPhone()));
+        userRoleRepo.createUser(userId, 2);
+        user.setUserId(userId);
+        userRepo.createLocalExpert(user);
+        return userId;
+    }
+
+    public String getHashedPassword() {
+        return bCryptPasswordEncoder.encode("sillybilly");
+    }
+
+    public ResponseUserDataDAO getUserDataById(int id) {
+        return userRepo.findUserDataById(id);
     }
 }

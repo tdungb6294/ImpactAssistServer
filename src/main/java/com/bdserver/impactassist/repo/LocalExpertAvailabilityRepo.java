@@ -28,4 +28,7 @@ public interface LocalExpertAvailabilityRepo {
 
     @Select("SELECT a.appointment_time AS date, a.availability_id as availabilityId FROM appointments a JOIN expert_availabilities ea ON a.availability_id=ea.id WHERE ea.local_expert_id = #{expertId} AND a.appointment_time > CURRENT_DATE")
     List<UnavailabilityDAO> getUnavailableAppointments(int expertId);
+
+    @Select("SELECT TRUE FROM expert_availabilities WHERE local_expert_id = #{userId} AND id = #{availabilityId}")
+    Boolean getAvailabilitiesByUserId(int userId, int availabilityId);
 }

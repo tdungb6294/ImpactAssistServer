@@ -30,15 +30,15 @@ public class AppointmentController {
 
     @GetMapping
     Map<String, Object> getAllAppointments(@RequestParam(required = false) Integer userId,
-                                           @RequestParam(required = false) Integer expertId,
+                                           @RequestParam(required = false) boolean expert,
                                            @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
                                            @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size,
                                            @RequestParam(required = false) List<LocalDate> date) {
+        if (expert) {
+            return appointmentService.getAppointmentsByExpertId(appointmentStatus, date, page, size);
+        }
         if (userId != null) {
             return appointmentService.getAppointmentsByUserId(userId, page, size);
-        }
-        if (expertId != null) {
-            return appointmentService.getAppointmentsByExpertId(appointmentStatus, expertId, date, page, size);
         }
         return appointmentService.getAllAppointmentsAuthenticated(page, size);
     }
@@ -47,11 +47,10 @@ public class AppointmentController {
     FullAppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
         return appointmentService.getAppointmentById(id);
     }
-
-    //TODO make this validate expert, because now we have any expert
+    
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @PutMapping
-    void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) {
+    void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) throws BadRequestException {
         appointmentService.updateAppointmentStatus(updateAppointmentStatusDAO);
     }
 }
