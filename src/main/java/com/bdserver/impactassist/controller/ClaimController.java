@@ -1,9 +1,6 @@
 package com.bdserver.impactassist.controller;
 
-import com.bdserver.impactassist.model.CarClaimDAO;
-import com.bdserver.impactassist.model.ObjectClaimDAO;
-import com.bdserver.impactassist.model.RegisterCarClaimDAO;
-import com.bdserver.impactassist.model.RegisterObjectClaimDAO;
+import com.bdserver.impactassist.model.*;
 import com.bdserver.impactassist.service.ClaimService;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
@@ -73,5 +70,10 @@ public class ClaimController {
     @GetMapping("/local-expert")
     public Map<String, Object> getPartialClaimsLocalExpert(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
         return claimService.getSharedClaims(page, size);
+    }
+
+    @PutMapping("/share")
+    public int shareClaimWithLocalExpert(@RequestBody RequestShareClaimDAO share) {
+        return claimService.shareClaim(share);
     }
 }

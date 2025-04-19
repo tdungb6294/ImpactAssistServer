@@ -17,13 +17,13 @@ public interface UserRepo {
     @Select("INSERT INTO users(full_name, email, password, phone) VALUES(#{fullName}, #{email}, #{password}, #{phone}) RETURNING id")
     Integer createUser(RegisterUserDAO user);
 
-    @Select("SELECT * FROM users WHERE email = #{username}")
+    @Select("SELECT id, full_name as fullName, email, password, phone, created_at as createdAt, updated_at as updatedAt FROM users WHERE email = #{username}")
     UserDAO findByUsername(String username);
 
     @Select("SELECT id, full_name as fullName, email, phone FROM users")
     List<UserDAO> findAll();
 
-    @Select("SELECT * FROM users WHERE id = ${id}")
+    @Select("SELECT id, full_name as fullName, email, password, phone, created_at as createdAt, updated_at as updatedAt FROM users WHERE id = ${id}")
     UserDAO findUserById(int id);
 
     @Insert("INSERT INTO local_experts (user_id, longitude, latitude, description) VALUES (#{userId}, #{longitude}, #{latitude}, #{description})")

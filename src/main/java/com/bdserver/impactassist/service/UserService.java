@@ -30,6 +30,7 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
+    @Transactional
     public Integer registerUser(RegisterUserDAO user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Integer userId = userRepo.createUser(user);
@@ -47,7 +48,8 @@ public class UserService {
         if (authentication.isAuthenticated() && user != null) {
             String accessToken = jwtService.generateAccessToken(user.getId());
             String refreshToken = jwtService.generateRefreshToken(user.getId());
-            return new JwtTokenDAO(accessToken, refreshToken, userRoleRepo.getUserRoleNameByUserId(user.getId()));
+            String role = userRoleRepo.getUserRoleNameByUserId(user.getId());
+            return new JwtTokenDAO(accessToken, refreshToken, role);
         }
 
         throw new UsernameNotFoundException("User not found");

@@ -1,10 +1,7 @@
 package com.bdserver.impactassist.repo;
 
 import com.bdserver.impactassist.model.*;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -105,4 +102,7 @@ public interface ClaimRepo {
 
     @Select("SELECT COUNT(*) FROM claims WHERE shared_id = #{userId}")
     int getClaimsLocalExpertCount(int userId);
+
+    @Update("UPDATE claims SET shared_id = #{localExpertId} WHERE id = #{claimId}")
+    void shareClaim(RequestShareClaimDAO share);
 }

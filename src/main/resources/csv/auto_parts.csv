@@ -1,0 +1,228 @@
+1,Bonnet / Hood,"The hinged cover over the engine bay of a car, allows access for maintenance.",150,800,1
+2,Bonnet / Hood Latch,A locking mechanism that secures the bonnet in place.,20,80,1
+3,Bumper (Exposed / Unexposed),"Protective parts mounted at front/rear to absorb minor impacts. Exposed is visible, unexposed may be structural beneath covers.",100,700,1
+4,Cowl Screen,"Located at the base of the windshield, it prevents debris from entering the HVAC system.",50,200,1
+5,Decklid,The panel that covers the trunk in sedans (rear hatch).,150,600,1
+6,Fascia Rear and Support,"Outer panel or trim at the rear, often includes mounting structure for lights and bumper.",100,400,1
+7,Fender (Wing or Mudguard),Curved panels over the wheels that block dirt and debris.,80,300,1
+8,Front Clip,"The complete front body section of a car, often includes the bumper, headlights, and grille.",200,"1,200",1
+9,Front Fascia and Header Panel,Fascia is the decorative front panel; header panel holds components like the headlights and grille.,100,500,1
+10,Grille,A protective mesh or slats that allow airflow to the radiator.,50,300,1
+11,Pillar and Hard Trim,"Vertical supports for the roof (A, B, C-pillars), often covered in hard plastic trim.",60,300,1
+12,Quarter Panel,"The body panel between the rear door and the trunk, wraps around the rear wheels.",200,600,1
+13,Radiator Core Support,A frame that holds the radiator and often the headlights/grille.,100,350,1
+14,Rocker Panel,"The lower side section beneath the doors, adds structural strength.",80,250,1
+15,Roof Rack,Bars on the car roof used to carry luggage or equipment.,100,400,1
+16,Spoiler (Front / Rear),Aerodynamic devices designed to reduce lift or drag; rear spoiler is often wing-shaped.,100,500,1
+17,Valance,A panel located below the bumper for aerodynamics or appearance.,50,200,1
+18,Trunk / Boot / Hatch,The rear storage compartment of a car.,150,800,1
+19,Trunk / Boot Latch,The mechanism that secures and locks the trunk.,20,80,1
+20,Welded Assembly,Body components or structures that are permanently joined by welding.,300,"1,000",1
+21,Mirror,Usually refers to side mirrors (wing mirrors) for rear visibility.,40,300,1
+22,License Plate Bracket,A mounting fixture that holds the vehicle’s license plate.,15,40,1
+23,Outer/Inner Door Handle,Handles used to open the door from outside and inside.,20,80,2
+24,Door Control Module,"An electronic unit that controls functions like windows, mirrors, and locking.",80,300,2
+25,Door Seal,"Rubber lining that prevents water, dust, and noise from entering.",30,120,2
+26,Door Watershield,A protective sheet inside the door to block water from entering interior components.,20,60,2
+27,Hinge,Metal joint allowing the door to swing open and shut.,10,50,2
+28,Door Latch,Mechanical device that keeps the door securely shut.,25,100,2
+29,Door Lock / Power Door Locks,Manual or electric mechanisms for locking/unlocking doors.,30,150,2
+30,Center-locking,A system that locks/unlocks all doors simultaneously.,40,200,2
+31,Fuel Tank (Filler) Door,A small door on the car’s body that conceals the fuel cap.,20,80,2
+32,Glass,"Refers to side window panes, often tempered or laminated.",50,300,2
+33,Sunroof,A panel in the roof that can be opened for light and air.,300,"1,200",2
+34,Sunroof Motor,Powers the opening/closing of the sunroof.,100,300,2
+35,Window Motor,Powers electric window movement up/down.,60,200,2
+36,Window Regulator,A mechanism inside the door that moves the window when cranked or powered.,60,250,2
+37,Window Seal,Rubber gasket around the window to seal and reduce wind/water noise.,30,100,2
+38,Antenna Assembly,Complete structure for radio signal reception.,30,120,2
+39,Antenna Cable,Connects the antenna to the radio system.,10,25,2
+40,Radio / Media Player / Tuner,Audio systems for entertainment and information.,100,600,3
+41,Speaker / Subwoofer,Converts electrical audio signals into sound; subwoofers emphasize bass.,40,250,3
+42,Dash Panels / Dashboard,The panel housing instruments and controls in front of the driver.,150,800,3
+43,Instrument Cluster,"Contains gauges like speedometer, tachometer, fuel and temperature indicators.",150,700,3
+44,Carpet / Floor Material,Material that covers the car floor for comfort and insulation.,80,300,3
+45,Center Console,The compartment or control area between the front seats.,100,500,3
+46,Trap (Secret Compartment),Hidden compartment often used for storage.,50,200,3
+47,Armrest,Padded section on doors or center console for resting arms.,30,150,3
+48,Bench Seat / Bucket Seat,"Bench seats are flat, spanning width; bucket seats are individual.",150,700,3
+49,Headrest,Adjustable support for head/neck on top of seats.,30,100,3
+50,Seat Belt,Safety device to restrain occupants during a crash.,50,200,3
+51,Seat Bracket / Track,Mounts and allows front-back adjustment of seats.,40,150,3
+52,Seat Cover,Protective fabric or leather covering for car seats.,30,150,3
+53,Children / Baby Car Seat,Special safety seat designed for children.,100,400,3
+54,Fastener / Nut / Screw / Bolt Cap / Shim / Rivet,Hardware for securing components together.,5,25,3
+55,Glove Compartment,A small storage space in the dashboard.,40,150,3
+56,"Grab Handle (""Oh S* Handle"")**",A handle near the roof edge for support while entering/exiting or during turns.,20,80,3
+57,Sun Visor,Flip-down panel to block sunlight through the windshield.,30,100,3
+58,Battery,Stores electrical energy for starting the engine and powering electrical components.,70,250,4
+59,Battery Tray,A compartment that holds the battery securely in place.,20,80,4
+60,Cables,Electrical wires that connect components like the battery to the car's systems.,10,50,4
+61,Control System,"Manages electrical components such as sensors, power windows, and more.",200,800,4
+62,Voltage Regulator,Regulates the voltage output from the alternator to keep the battery charged.,40,120,4
+63,Alternator,"Charges the car’s battery while the engine is running, providing electrical power.",100,300,4
+64,Alternator Parts,Components like bearings and fans related to the alternator.,30,150,4
+65,Starter,Motor that turns the engine over to start it.,80,250,4
+66,Starter Motor / Solenoid / Drive,"The motor that engages to start the engine, solenoid is the switch mechanism.",60,200,4
+67,Spark Plug,Ignites the air-fuel mixture in the engine cylinders for combustion.,5,20,4
+68,Coil,Converts battery voltage into high voltage to power the spark plug.,40,150,4
+69,Distributor,Directs the electrical current to the correct cylinder's spark plug.,50,200,4
+70,Switches:,"Door, Ignition, Power Window, Steering Column: These switches control various systems in the car.",10,80,4
+71,Airbag Sensors,Detects crashes and deploys airbags for safety.,80,300,4
+72,Light Sensor,Detects light levels to automatically control headlights.,30,100,4
+73,Knock Sensor,Monitors engine vibrations for early detection of knocking or pinging.,40,120,4
+74,Fuel/Oil/Temperature/Tire Pressure Sensors,"Monitors various systems like fuel levels, oil pressure, engine temperature, and tire pressure.",30,150,4
+75,Mass Flow Sensor,Measures the amount of air entering the engine for fuel control.,100,250,4
+76,Camshaft / Crankshaft Position Sensors,Detects the position of the camshaft or crankshaft to synchronize engine timing.,70,200,4
+77,Wiring Harnesses,Bundles of wires that route electrical power and signals to different car components.,100,600,4
+78,Relays / Fuses / Fuse Box,Electrical components that protect circuits by cutting power when needed.,10,100,4
+79,Speedometer / Tachometer / Odometer / Ammeter,"Instruments measuring speed, engine RPM, total distance traveled, and electrical current.",80,300,4
+80,Fuel Gauge / Water Temp Meter / Voltmeter / Vacuum Gauge,"Monitors fuel levels, engine temperature, battery voltage, and vacuum pressure.",50,150,4
+81,Engine Block,The main structure housing the cylinders and other engine components.,500,"2,000",5
+82,Cylinder Head,"Sits on top of the engine block and contains valves, camshafts, etc.",300,900,5
+83,Crankshaft,Converts the up-and-down motion of the pistons into rotational motion.,200,600,5
+84,Piston,Moves up and down inside the cylinder to create power.,50,150,5
+85,Connecting Rod,Links the piston to the crankshaft for motion transmission.,50,150,5
+86,Camshaft,Controls the timing of the engine’s intake and exhaust valves.,100,400,5
+87,Rocker Arm,Transfers motion from the camshaft to the valves.,30,100,5
+88,Valve (Intake / Exhaust / Spring / Cover),"Intake and exhaust valves control air/fuel flow in and out of the engine, springs hold them in place.",30,100,5
+89,Timing Belt / Drive Belt / Accessory Belt,Belts that ensure precise timing between engine components.,40,150,5
+90,Engine Mounting / Damper / Vibration Absorber,Keeps the engine secure while absorbing vibrations during operation.,50,200,5
+91,Oil Pump / Oil Pan / Oil Filter / Oil Strainer,The oil pump circulates oil; the filter keeps it clean; the pan holds the oil.,20,150,5
+92,Water Pump,Circulates coolant through the engine and radiator.,40,150,5
+93,Radiator,Cools the engine by dissipating heat from the coolant.,100,350,5
+94,Radiator Fan,Helps the radiator dissipate heat more effectively.,60,200,5
+95,Gaskets / Seals,Prevent leakage of fluids and gases from engine components.,10,80,5
+96,PCV Valve,Manages crankcase pressure to prevent oil leaks and emissions.,20,60,5
+97,Turbocharger / Supercharger,Forced induction systems that increase engine power by compressing air entering the engine.,400,"1,500",5
+98,Air Filter / Air Intake Housing / Manifold,"Filters air before it enters the engine, and the intake manifold distributes air evenly.",20,150,5
+99,Throttle Body / Carburetor,Controls the amount of air and fuel entering the engine for combustion.,100,400,5
+100,Glowplug,Aids in cold starting of diesel engines by preheating the combustion chamber.,10,30,5
+101,Fuel Injector / Fuel Rail / Fuel Cell,"The injector delivers fuel to the engine, the fuel rail supplies it, and the fuel cell stores it.",100,500,5
+102,A/C Compressor,Compresses refrigerant and circulates it through the A/C system.,150,500,6
+103,A/C Condenser,"Releases heat from the refrigerant, turning it from a gas back to a liquid.",80,250,6
+104,A/C Evaporator,Absorbs heat from the car's interior air to cool it down.,100,300,6
+105,A/C Clutch,Engages and disengages the compressor based on demand for cooling.,50,200,6
+106,A/C Relay,Acts as a switch to control the A/C compressor operation.,10,50,6
+107,A/C Hoses,Carries refrigerant throughout the A/C system.,20,100,6
+108,A/C Valves,Regulate refrigerant flow and pressure within the system.,30,120,6
+109,A/C Cooler,Cools the air coming into the vehicle to maintain comfort.,80,250,6
+110,A/C Expansion Valve,"Controls the flow of refrigerant into the evaporator, regulating cooling.",30,100,6
+111,Heater,Heats the interior air using the engine’s cooling system.,80,300,6
+112,Blower Motor,Moves air through the heater and A/C systems to circulate cool or warm air.,60,180,6
+113,Rims,The metal structure that holds the tire in place and connects to the wheel.,100,800,7
+114,Hubcap,A cover that hides the wheel lug nuts and enhances the appearance of the wheel.,20,100,7
+115,Tire/Tyre,The rubber outer part of the wheel that contacts the road.,80,400,7
+116,Wheel Stud,"A metal pin that sticks out from the wheel hub, allowing the wheel to be attached.",15,40,7
+117,Wheel Cylinder,A component of the braking system that works with the brake shoes to stop the wheel.,30,100,7
+118,Tire Pressure Gauge,Measures the air pressure in the tires to ensure proper inflation.,30,100,7
+119,Brake Pad,A friction material that presses against the brake rotor to slow the vehicle.,30,100,8
+120,Brake Disc (Rotor),"The flat, circular metal part that the brake pad presses against to stop the wheel.",50,200,8
+121,Brake Drum,A cylindrical part that works with brake shoes in drum brake systems.,40,150,8
+122,Brake Shoe,A curved component that presses against the brake drum to slow the wheel in drum brake systems.,20,50,8
+123,Caliper,A clamp that holds the brake pads and presses them against the brake rotor.,60,250,8
+124,Master Cylinder,A component that converts the force from the brake pedal into hydraulic pressure to activate the brakes.,60,200,8
+125,Brake Booster,A vacuum or hydraulic-powered component that amplifies the force applied to the brake pedal.,80,300,8
+126,Brake Servo,A part that assists in braking by using vacuum pressure to reduce pedal force.,80,300,8
+127,Parking Brake Lever (Hand Brake),"A lever used to apply the parking brake, typically used to prevent the car from rolling when parked.",40,150,8
+128,Brake Lines/Hoses,Pipes or rubber hoses that carry brake fluid from the master cylinder to the brake components.,20,100,8
+129,Brake Valves,Control the distribution of brake fluid and pressure to various parts of the braking system.,30,120,8
+130,ABS System,"Anti-lock Braking System, helps maintain steering control during hard braking.",300,800,8
+131,Brake Sensors,"Monitors the status of the braking system, such as brake pad wear or hydraulic pressure.",40,150,8
+132,Proportioning Valve,Regulates brake fluid pressure to maintain an even distribution of braking force.,40,120,8
+133,Metering Valve,Controls the timing and pressure in hydraulic brake systems.,40,120,8
+134,Brake Light,"Indicates when the brakes are applied, usually seen on the rear of the car.",15,40,8
+135,Brake Warning Indicator,A light or symbol that alerts the driver to issues with the braking system.,5,50,8
+136,Control Arm,A suspension component that connects the wheel assembly to the vehicle's frame and allows controlled movement.,80,250,9
+137,Shock Absorber,Dampens the impact and rebound from the road to improve ride comfort and handling.,60,250,9
+138,Struts,"A suspension component that integrates a shock absorber with other suspension parts, such as the spring.",80,300,9
+139,Coil/Leaf/Air Springs,Types of suspension springs that absorb shocks and maintain vehicle height.,80,300,9
+140,Stabilizer Bars (Anti-roll Bars),Reduces body roll during cornering by linking opposite suspension components.,40,150,9
+141,Tie Rod,"Connects the steering gear to the wheels, helping steer the vehicle.",40,120,9
+142,Tie Bar,A suspension component that stabilizes or strengthens the vehicle’s suspension system.,50,150,9
+143,Pitman Arm,Part of the steering mechanism that connects the steering gear to the steering linkage.,40,120,9
+144,Idler Arm,A component of the steering system that supports the steering linkage.,40,120,9
+145,Steering Rack,A part of the steering system that converts the rotational movement of the steering wheel into lateral movement of the wheels.,200,600,9
+146,Steering Box,A device that connects the steering wheel to the steering mechanism.,150,500,9
+147,Steering Wheel,The wheel the driver uses to control the vehicle’s direction.,100,400,9
+148,Steering Column Assembly,The central shaft that connects the steering wheel to the rest of the steering mechanism.,200,600,9
+149,Rack End,The end of the steering rack that connects to the steering arm or link.,30,100,9
+150,Ball Joint,A pivot point in the suspension system that allows for smooth movement between the wheel assembly and the vehicle frame.,30,100,9
+151,Bushings,Rubber components that reduce friction and wear in suspension joints.,20,100,9
+152,Spindles,The components that connect the wheels to the suspension and allow them to rotate.,60,250,9
+153,Kingpin,The pivot point that allows the wheels to steer.,40,120,9
+154,Clutch Assembly,A system that engages and disengages the engine’s power from the drivetrain.,150,500,10
+155,Clutch Pedal,The pedal used by the driver to engage or disengage the clutch.,40,100,10
+156,Clutch Cable,A cable that connects the clutch pedal to the clutch mechanism.,20,60,10
+157,Clutch Disk,The friction plate that connects to the engine flywheel and allows the car to engage or disengage power from the engine.,60,200,10
+158,Flywheel,A heavy rotating disk attached to the engine that helps maintain smooth engine operation.,100,400,10
+159,Gearbox,"A system of gears that controls the power transfer from the engine to the wheels, allowing the vehicle to change speeds.",500,"1,500",10
+160,Differential,"A mechanical component that allows the wheels to rotate at different speeds, especially during turns.",400,"1,200",10
+161,Shift Lever,The lever used by the driver to select the appropriate gear in a manual transmission vehicle.,50,150,10
+162,Gear Stick,"Another term for the shift lever, used to change gears.",20,150,10
+163,Gear Knob,The top part of the gear stick that the driver grips to change gears.,20,80,10
+164,Driveshaft,"A shaft that transmits power from the engine to the wheels, especially in rear-wheel or all-wheel-drive vehicles.",150,500,10
+165,Prop Shaft,A type of driveshaft used to transfer power from the engine to the differential.,100,400,10
+166,U-Joint (Universal Joint),A flexible joint that connects driveshafts and allows them to move at different angles.,50,150,10
+167,Torque Converter,A device that transfers and multiplies engine torque to the transmission in automatic vehicles.,200,800,10
+168,Transmission Pan,A metal pan that covers the bottom of the transmission to hold the transmission fluid.,60,150,10
+169,Axle Shaft,"A shaft that connects the wheel hub to the differential, allowing the wheels to rotate.",100,400,10
+170,Output Shaft,A shaft that transmits rotational power from the transmission to the drivetrain.,100,400,10
+171,Gear Set,A collection of gears that work together to control the vehicle's speed and torque.,200,800,10
+172,Fuel Pump,Pumps fuel from the tank to the engine.,100,400,11
+173,Fuel Filter,Filters contaminants out of the fuel before it reaches the engine.,20,40,11
+174,Fuel Cap,A cover that seals the fuel tank to prevent fuel evaporation and contamination.,20,50,11
+175,Fuel Tank,A container that holds the vehicle's fuel.,200,700,11
+176,Fuel Cooler,Cools the fuel to maintain optimal temperature for efficient engine operation.,100,250,11
+177,Fuel Rail,A component that delivers fuel to the injectors for each cylinder in the engine.,80,300,11
+178,Fuel Water Separator,"A filter that separates water from the fuel, preventing damage to the engine.",50,200,11
+179,Fuel Injector,A nozzle that sprays fuel directly into the combustion chamber for precise fuel delivery.,100,400,11
+180,Fuel Lines,Tubes that carry fuel from the tank to the engine.,30,150,11
+181,Vapor Hose,A hose that carries fuel vapors to be recirculated into the engine to prevent fuel loss.,20,80,11
+182,Fuel Pressure Regulator,Maintains consistent fuel pressure for proper engine performance.,60,200,11
+183,Radiator,A component that helps cool the engine by dissipating heat from the engine coolant.,50,400,12
+184,Radiator Cap,A cap that seals the radiator and maintains the pressure inside the cooling system.,10,40,12
+185,Overflow Tank,"A container that stores excess coolant when it expands due to heat, preventing overflow.",20,80,12
+186,Water Neck,"A metal fitting that connects the radiator to the engine's cooling system, allowing coolant to flow between them.",30,100,12
+187,Water Pipe,Tubes or pipes that carry coolant between the engine and radiator.,20,100,12
+188,Water Pump,A pump that circulates coolant through the engine and radiator to regulate temperature.,20,200,12
+189,Cooling Fan,A fan that helps cool the radiator and engine by pulling air through the radiator.,60,200,12
+190,Fan Clutch,"A device that regulates the fan's speed, typically by engaging it when the engine temperature rises.",50,150,12
+191,Fan Blades,The blades that spin to move air through the radiator to cool the engine.,20,100,12
+192,Hoses,Flexible tubes that carry coolant throughout the engine and cooling system.,10,100,12
+193,Gaskets,"Seals that prevent coolant leaks between engine parts, like the radiator and engine block.",10,80,12
+194,Muffler (Silencer),A component that reduces noise produced by the exhaust gases as they exit the engine.,80,300,13
+195,Resonator,"A device that reduces sound and helps fine-tune the exhaust note, usually placed before the muffler.",60,200,13
+196,Heat Shield,A shield that protects other parts of the vehicle from the heat generated by the exhaust system.,30,100,13
+197,Exhaust Manifold,The part that collects exhaust gases from multiple cylinders and directs them into the exhaust pipe.,100,400,13
+198,Exhaust Pipe,A pipe that directs exhaust gases away from the engine and out of the vehicle.,60,250,13
+199,Exhaust Gaskets,"Seals used to prevent exhaust leaks between parts of the exhaust system, such as between the manifold and the cylinder head.",10,50,13
+200,Exhaust Clamps,"Components used to connect exhaust system parts, such as pipes and mufflers, to prevent leaks.",5,25,13
+201,Catalytic Converter,A device that reduces harmful emissions by converting them into less harmful substances like water and carbon dioxide.,300,"1,200",13
+202,EGR Valve (Exhaust Gas Recirculation Valve),A component that recirculates some of the exhaust gases back into the engine to reduce nitrogen oxide emissions.,100,300,13
+203,"Gaskets (Flat, Moulded, O-rings)","Seals that prevent leaks of fluids or gases between two surfaces. Flat and moulded gaskets have specific shapes, while O-rings are circular seals that create pressure-resistant seals in joints.",30,300,14
+204,Decals,Stickers or labels that are applied to the exterior of a vehicle for identification or aesthetic purposes.,10,50,14
+205,Labels,"Printed tags that provide information about a part or the vehicle, such as warnings or part specifications.",10,50,14
+206,Name Plates,Plates that identify the make or model of a vehicle or its components.,10,50,14
+207,Paint,A coating applied to the surface of a vehicle or part for protection and aesthetic purposes.,20,100,14
+208,Adhesive Tape,"A sticky tape used for various purposes, such as securing parts or sealing gaps.",1,10,14
+209,Foil,"Thin sheets of metal (often aluminum) used for various purposes, including insulation or sealing.",10,50,14
+210,Rubber Components,"Parts made from rubber, often used for seals, mounts, and insulation.",10,80,14
+211,Molded Parts,Components formed by shaping plastic or rubber materials into specific shapes through molding processes.,20,100,14
+212,Horn,A device that produces a loud sound to alert other drivers or pedestrians.,30,100,14
+213,Trumpet Horn,"A type of horn that has a distinctive, louder, and more musical tone, often used in vehicles for signaling.",30,100,14
+214,Shim,A thin piece of material used to adjust the fit of parts or align them properly.,5,25,14
+215,Cotter Pin,"A type of fastener used to secure a pin or bolt in place, often used in automotive applications to prevent parts from loosening.",1,10,14
+216,Brackets,"Metal or plastic supports that hold components in place, often used to attach parts to the vehicle frame.",10,60,14
+217,Minor Dents,Small dents that don’t involve paint damage; fixed without repainting using specialized tools.,50,250,15
+218,Major Dents,Larger dents that damage the paint or require body filler to smooth out the surface before repainting.,200,1500,15
+219,Minor Scratches,"Small, shallow scratches on the paintwork that can be buffed out or touched up with paint.",50,400,15
+220,Major Scratches,Deeper scratches that have penetrated the paint and may require sanding down the damaged area and repainting.,150,1000,15
+221,Bumper Scratch,"Scratches or small dents on the bumper, which may involve sanding, filling, and repainting.",150,800,15
+222,Full Repainting,"Repainting a whole panel (like a door, fender, or quarter panel) to match the vehicle’s original color, including primer, base coat, and clear coat.",250,2000,15
+223,Full Car Respray,"Repainting the entire car, which may involve disassembling parts like trim and bumpers. This is for cosmetic overhauls and color changes.",1500,10000,15
+224,Clear Coat Repair,Restoring or reapplying clear coat that has worn out or been damaged by UV rays and weathering.,100,700,15
+225,Wheel Repair,"Minor cosmetic repair to alloy or chrome wheels, such as curb rash, scratches, or chips, followed by repainting or polishing.",50,300,15
+226,Headlight Restoration,"Buffing and polishing to remove fogging, yellowing, or oxidation from the headlights.",50,250,15
+227,Rust Removal and Treatment,"Removing surface rust and treating the area to prevent further damage, usually with sanding and priming before repainting.",100,1200,15
+228,Vinyl Wrap,A vinyl film is applied to parts or the entire vehicle to change the appearance (as a non-permanent alternative to painting).,1000,5000,15

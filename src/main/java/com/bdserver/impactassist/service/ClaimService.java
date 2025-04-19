@@ -2,7 +2,6 @@ package com.bdserver.impactassist.service;
 
 import com.bdserver.impactassist.model.*;
 import com.bdserver.impactassist.repo.ClaimRepo;
-import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -163,7 +162,7 @@ public class ClaimService {
     }
 
     @Transactional
-    public Integer registerObjectClaim(List<MultipartFile> images, List<MultipartFile> documents, @Valid RegisterObjectClaimDAO registerObjectClaimDAO) throws IOException {
+    public Integer registerObjectClaim(List<MultipartFile> images, List<MultipartFile> documents, RegisterObjectClaimDAO registerObjectClaimDAO) throws IOException {
         if (registerObjectClaimDAO.getDocumentTypes().size() != documents.size()) {
             throw new BadRequestException();
         }
@@ -210,5 +209,10 @@ public class ClaimService {
         result.put("totalPages", (int) Math.ceil((double) total / (double) size));
         result.put("total", total);
         return result;
+    }
+
+    public int shareClaim(RequestShareClaimDAO share) {
+        claimRepo.shareClaim(share);
+        return 0;
     }
 }

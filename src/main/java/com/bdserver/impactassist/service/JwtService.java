@@ -6,7 +6,6 @@ import io.jsonwebtoken.impl.lang.Function;
 import org.springframework.stereotype.Service;
 
 import java.security.KeyPair;
-import java.security.PublicKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,10 +33,6 @@ public class JwtService {
                 .and()
                 .signWith(accessKeyPair.getPrivate(), Jwts.SIG.EdDSA)
                 .compact();
-    }
-
-    public PublicKey getAccessPublicKey() {
-        return accessKeyPair.getPublic();
     }
 
     public Integer extractUserId(String token) {
