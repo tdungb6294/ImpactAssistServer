@@ -1,0 +1,1 @@
+CREATE INDEX idx_auto_parts_and_services_fts ON auto_parts_and_services USING GIN (to_tsvector('english', description));

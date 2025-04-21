@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 public class MessageConsumer {
     @KafkaListener(topics = "my-topic", groupId = "hello-world")
     public void listen(String message) {
-        System.out.println(message);
+        /* not implemented */
     }
 }

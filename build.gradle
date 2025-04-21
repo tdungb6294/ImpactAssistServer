@@ -5,6 +5,7 @@ plugins {
     id 'org.graalvm.buildtools.native' version '0.10.4'
     id 'org.asciidoctor.jvm.convert' version '3.3.2'
     id 'jacoco'
+    id "org.sonarqube" version "6.0.1.5171"
 }
 
 group = 'com.bdserver'
@@ -97,4 +98,13 @@ tasks.named('asciidoctor') {
 jacoco {
     toolVersion = "0.8.12"
     reportsDirectory = layout.buildDirectory.dir('reports/jacoco')
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "impactassistserver"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.projectName", "impactassistserver"
+        property "sonar.token", "sqp_74bc0cbf6b68016fc829a7a3126c21ab60abb3a5"
+    }
 }

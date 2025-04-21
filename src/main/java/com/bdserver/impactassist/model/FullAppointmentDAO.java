@@ -13,7 +13,7 @@ public class FullAppointmentDAO {
     private LocalDate date;
     private int availabilityId;
     private int userId;
-    private AppointmentStatusEnum appointmentStatus;
+    private AppointmentStatus appointmentStatus;
     private LocalTime startTime;
     private LocalTime endTime;
     private DayOfWeekEnum dayOfWeek;

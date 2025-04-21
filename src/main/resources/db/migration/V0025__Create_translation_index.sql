@@ -1,0 +1,1 @@
+CREATE INDEX idx_auto_parts_and_services_lithuanian_translations_fts ON auto_parts_and_services_translations USING GIN (to_tsvector('lithuanian', description)) WHERE language_code = 'lt';

@@ -35,7 +35,7 @@ public class AppointmentService {
     }
 
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
-    public Map<String, Object> getAppointmentsByExpertId(List<AppointmentStatusEnum> appointmentStatus, List<LocalDate> date, int page, int size) {
+    public Map<String, Object> getAppointmentsByExpertId(List<AppointmentStatus> appointmentStatus, List<LocalDate> date, int page, int size) {
         int expertId = userService.getUserId();
         int offset = (page - 1) * size;
         List<AppointmentDAO> appointments = appointmentRepo.getFilteredAppointments(appointmentStatus, size, offset, expertId, date);

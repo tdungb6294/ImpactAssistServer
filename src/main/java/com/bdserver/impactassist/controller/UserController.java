@@ -43,9 +43,4 @@ public class UserController {
     public Integer registerLocalExpert(@Valid @RequestBody RegisterLocalExpertDAO user) {
         return userService.registerLocalExpertUser(user);
     }
-
-    @GetMapping
-    public String returnHashPassword() {
-        return userService.getHashedPassword();
-    }
 }

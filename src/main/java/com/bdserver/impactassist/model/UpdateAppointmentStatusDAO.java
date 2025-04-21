@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class UpdateAppointmentStatusDAO {
     private int appointmentId;
-    private AppointmentStatusEnum appointmentStatus;
+    private AppointmentStatus appointmentStatus;
 }

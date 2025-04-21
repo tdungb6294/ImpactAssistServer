@@ -1,6 +1,6 @@
 package com.bdserver.impactassist.controller;
 
-import com.bdserver.impactassist.model.AppointmentStatusEnum;
+import com.bdserver.impactassist.model.AppointmentStatus;
 import com.bdserver.impactassist.model.FullAppointmentDAO;
 import com.bdserver.impactassist.model.RequestAppointmentDAO;
 import com.bdserver.impactassist.model.UpdateAppointmentStatusDAO;
@@ -30,11 +30,11 @@ public class AppointmentController {
 
     @GetMapping
     Map<String, Object> getAllAppointments(@RequestParam(required = false) Integer userId,
-                                           @RequestParam(required = false) boolean expert,
-                                           @RequestParam(required = false) List<AppointmentStatusEnum> appointmentStatus,
+                                           @RequestParam(required = false) Boolean expert,
+                                           @RequestParam(required = false) List<AppointmentStatus> appointmentStatus,
                                            @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size,
                                            @RequestParam(required = false) List<LocalDate> date) {
-        if (expert) {
+        if (expert != null && expert) {
             return appointmentService.getAppointmentsByExpertId(appointmentStatus, date, page, size);
         }
         if (userId != null) {
@@ -47,7 +47,7 @@ public class AppointmentController {
     FullAppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
         return appointmentService.getAppointmentById(id);
     }
-    
+
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @PutMapping
     void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) throws BadRequestException {

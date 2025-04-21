@@ -3,6 +3,7 @@ package com.bdserver.impactassist.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.impl.lang.Function;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.security.KeyPair;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Getter
 public class JwtService {
 
     private final KeyPair accessKeyPair;

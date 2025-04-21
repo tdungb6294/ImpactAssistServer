@@ -1,6 +1,6 @@
 package com.bdserver.impactassist.repo;
 
-import com.bdserver.impactassist.model.AppointmentStatusEnum;
+import com.bdserver.impactassist.model.AppointmentStatus;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.SQL;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AppointmentSqlProvider {
-    public String getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date) {
+    public String getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatus> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date) {
         return new SQL() {
             {
                 SELECT("a.id as id, " +
@@ -44,7 +44,7 @@ public class AppointmentSqlProvider {
         } + " LIMIT #{limit} OFFSET #{offset}";
     }
 
-    public String getFilteredAppointmentsCount(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date) {
+    public String getFilteredAppointmentsCount(@Param("appointmentStatus") List<AppointmentStatus> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date) {
         return new SQL() {
             {
                 SELECT("COUNT(*)");

@@ -136,11 +136,11 @@ public class ClaimService {
         return body;
     }
 
-    public Map<String, Object> getClaims(int page, int size) {
+    public Map<String, Object> getClaims(int page, int size, List<ClaimStatus> status) {
         int offset = (page - 1) * size;
         int userId = userService.getUserId();
-        List<PartialClaimDAO> claims = claimRepo.getPagedClaimsByUserId(userId, offset, size);
-        int total = claimRepo.getClaimsCount(userId);
+        List<PartialClaimDAO> claims = claimRepo.getFilteredPagedClaimsByUserId(userId, offset, size, status);
+        int total = claimRepo.getFilteredPagedClaimCountByUserId(userId, status);
         boolean hasMore = offset + size < total;
         Map<String, Object> result = new HashMap<>();
         result.put("claims", claims);
@@ -196,11 +196,11 @@ public class ClaimService {
         return claimId;
     }
 
-    public Map<String, Object> getSharedClaims(int page, int size) {
+    public Map<String, Object> getSharedClaims(int page, int size, List<ClaimStatus> status) {
         int offset = (page - 1) * size;
         int userId = userService.getUserId();
-        List<PartialClaimDAO> claims = claimRepo.getPagedClaimsByLocalExpertId(userId, offset, size);
-        int total = claimRepo.getClaimsLocalExpertCount(userId);
+        List<PartialClaimDAO> claims = claimRepo.getFilteredPagedClaimsByLocalExpertId(userId, offset, size, status);
+        int total = claimRepo.getFilteredPagedClaimCountByLocalExpertId(userId, status);
         boolean hasMore = offset + size < total;
         Map<String, Object> result = new HashMap<>();
         result.put("claims", claims);

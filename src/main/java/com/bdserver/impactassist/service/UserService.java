@@ -90,10 +90,6 @@ public class UserService {
         return userId;
     }
 
-    public String getHashedPassword() {
-        return bCryptPasswordEncoder.encode("sillybilly");
-    }
-
     public ResponseUserDataDAO getUserDataById(int id) {
         return userRepo.findUserDataById(id);
     }

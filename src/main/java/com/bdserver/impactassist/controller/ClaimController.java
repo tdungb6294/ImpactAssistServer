@@ -57,8 +57,8 @@ public class ClaimController {
     }
 
     @GetMapping
-    public Map<String, Object> getClaims(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
-        return claimService.getClaims(page, size);
+    public Map<String, Object> getClaims(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size, @RequestParam(required = false) List<ClaimStatus> status) {
+        return claimService.getClaims(page, size, status);
     }
 
     @GetMapping("/object/{id}")
@@ -68,8 +68,8 @@ public class ClaimController {
 
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @GetMapping("/local-expert")
-    public Map<String, Object> getPartialClaimsLocalExpert(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
-        return claimService.getSharedClaims(page, size);
+    public Map<String, Object> getPartialClaimsLocalExpert(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size, @RequestParam(required = false) List<ClaimStatus> status) {
+        return claimService.getSharedClaims(page, size, status);
     }
 
     @PutMapping("/share")

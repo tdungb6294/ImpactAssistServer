@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
@@ -186,7 +187,7 @@ public class ClaimIntegrationTest {
                 .andExpect(status().isOk())
                 .andReturn();
         String json = result.getResponse().getContentAsString();
-        Map<String, Object> mapResult = objectMapper.readValue(json, new TypeReference<Map<String, Object>>() {
+        Map<String, Object> mapResult = objectMapper.readValue(json, new TypeReference<>() {
         });
         Integer currentPage = (Integer) mapResult.get("currentPage");
         Integer nextPage = (Integer) mapResult.get("nextPage");
@@ -239,7 +240,7 @@ public class ClaimIntegrationTest {
                 .andExpect(status().isOk())
                 .andReturn();
         String json = result.getResponse().getContentAsString();
-        Map<String, Object> mapResult = objectMapper.readValue(json, new TypeReference<Map<String, Object>>() {
+        Map<String, Object> mapResult = objectMapper.readValue(json, new TypeReference<>() {
         });
         Integer currentPage = (Integer) mapResult.get("currentPage");
         Integer nextPage = (Integer) mapResult.get("nextPage");
@@ -258,5 +259,49 @@ public class ClaimIntegrationTest {
         assertEquals("123 Baker Street, London, NW1 6XE, United Kingdom", claim.getAddress());
         assertEquals(now.atTime(0, 0), claim.getAccidentDatetime());
         assertNull(claim.getObjectType());
+    }
+
+    @Test
+    @Order(7)
+    public void createDamageReport() throws Exception {
+        RequestDamageReportDAO requestDamageReportDAO = RequestDamageReportDAO.builder()
+                .claimId(1)
+                .autoPartsAndServices(List.of(1, 2, 3))
+                .build();
+
+        String jsonContent = objectMapper.writeValueAsString(requestDamageReportDAO);
+
+        mockMvc.perform(post("/damage-report").header("Authorization", "Bearer " + accessToken)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk()).andExpect(content().string("1"));
+
+        MvcResult result = mockMvc.perform(get("/damage-report/claim/1")
+                .header("Authorization", "Bearer " + accessToken)).andReturn();
+        String json = result.getResponse().getContentAsString();
+
+        List<PartialDamageReportDAO> reports = objectMapper.readValue(json, new TypeReference<>() {
+        });
+        PartialDamageReportDAO damageReport = reports.getFirst();
+        assertEquals(1, reports.size());
+        assertEquals(1, damageReport.getReportId());
+        assertEquals("admin", damageReport.getFullName());
+    }
+
+    @Test
+    @Order(8)
+    public void getDamageReport() throws Exception {
+        MvcResult result = mockMvc.perform(get("/damage-report/1")
+                .header("Authorization", "Bearer " + accessToken)).andReturn();
+        String json = result.getResponse().getContentAsString();
+        ResponseDamageReportDAO responseDamageReport = objectMapper.readValue(json, ResponseDamageReportDAO.class);
+        DamageReportDAO damageReport = responseDamageReport.getDamageReportDAO();
+        assertEquals(1, damageReport.getReportId());
+        assertEquals("admin", damageReport.getFullName());
+        assertEquals(new BigDecimal("270.00"), damageReport.getEstimatedMinPriceWithoutService());
+        assertEquals(new BigDecimal("1580.00"), damageReport.getEstimatedMaxPriceWithoutService());
+        assertEquals(new BigDecimal("570.00"), damageReport.getEstimatedMinPriceWithService());
+        assertEquals(new BigDecimal("3080.00"), damageReport.getEstimatedMaxPriceWithService());
+        assertEquals(3, responseDamageReport.getAutoPartsAndServices().size());
     }
 }

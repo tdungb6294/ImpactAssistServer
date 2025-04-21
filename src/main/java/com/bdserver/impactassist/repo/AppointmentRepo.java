@@ -27,10 +27,10 @@ public interface AppointmentRepo {
 //            ", a.description as description, a.appointment_time as date, a.appointment_status as appointmentStatus FROM appointments a JOIN expert_availabilities ea ON a.availability_id=ea.id WHERE ea.local_expert_id = #{expertId}" +
 //            " ORDER BY appointment_time, CASE appointment_status WHEN 'PENDING' THEN 1 WHEN 'CONFIRMED' THEN 2 ELSE 3 END")
 //    List<AppointmentDAO> getAllAppointmentsByExpertId(int expertId);
-    List<AppointmentDAO> getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date);
+    List<AppointmentDAO> getFilteredAppointments(@Param("appointmentStatus") List<AppointmentStatus> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date);
 
     @SelectProvider(value = AppointmentSqlProvider.class, method = "getFilteredAppointmentsCount")
-    Integer getFilteredAppointmentsCount(@Param("appointmentStatus") List<AppointmentStatusEnum> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date);
+    Integer getFilteredAppointmentsCount(@Param("appointmentStatus") List<AppointmentStatus> appointmentStatus, @Param("limit") Integer limit, @Param("offset") Integer offset, @Param("expertId") int expertId, @Param("date") List<LocalDate> date);
 
     @Select("SELECT a.id, a.user_id as userId, a.availability_id as availabilityId, a.title, a.description, a.appointment_time as date, a.appointment_status as appointmentStatus, ea.start_time as startTime, ea.end_time as endTime, ea.day_of_week as dayOfWeek, le.longitude as longitude, le.latitude as latitude, u.full_name as fullName FROM appointments a LEFT JOIN expert_availabilities ea ON a.availability_id=ea.id LEFT JOIN local_experts le ON ea.local_expert_id=le.user_id LEFT JOIN users u ON u.id=le.user_id WHERE a.id = #{appointmentId}")
     FullAppointmentDAO getAppointmentById(int appointmentId);

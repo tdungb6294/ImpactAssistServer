@@ -119,8 +119,17 @@ public class UserIntegrationTest {
 
         MvcResult resultLocalExperts = mockMvc.perform(get("/local_expert").header("Authorization", "Bearer " + adminAccessToken)).andExpect(status().isOk()).andReturn();
         String jsonLocalExperts = resultLocalExperts.getResponse().getContentAsString();
-        List<ResponseLocalExpertDAO> response = objectMapper.readValue(jsonLocalExperts, new TypeReference<List<ResponseLocalExpertDAO>>() {
+        List<ResponseLocalExpertDAO> response = objectMapper.readValue(jsonLocalExperts, new TypeReference<>() {
         });
         assertTrue(response.stream().anyMatch(localExpertResponse -> localExpertResponse.getId() == 4));
+    }
+
+    @Test
+    @Order(5)
+    public void loginBadRequest() throws Exception {
+        mockMvc.perform(get("/auth/users")
+                        .header("Authorization", "NotBearer " + accessToken)
+                )
+                .andExpect(status().isUnauthorized());
     }
 }

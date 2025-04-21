@@ -1,0 +1,228 @@
+﻿1,Kapotas,"Varstomas dangtis virš variklio skyriaus, leidžiantis prieigą prie techninės priežiūros.",lt
+2,Kapoto spyna,"Užrakinimo mechanizmas, kuris užfiksuoja variklio dangtį vietoje.",lt
+3,Bamperis (matomas / nematomas),"Apsauginės dalys, pritvirtintos priekyje/galinėje dalyje, sugeria nedidelius smūgius. Matoma dalis yra išorėje, nematoma – gali būti struktūrinė po dangčiais.",lt
+4,Vėjelio grotelės,"Esantis priekinio stiklo apačioje, neleidžia nešvarumams patekti į oro kondicionavimo sistemą.",lt
+5,Bagažinės dangtis,"Panelė, dengianti bagažinę sedanuose (galinis dangtis).",lt
+6,Galinė fasada ir atrama,"Išorinė galinė dalis arba apdaila, dažnai turi tvirtinimo vietas žibintams ir bamperiui.",lt
+7,Sparnas (priekinis / galinis),"Lenkti skydeliai virš ratų, kurie apsaugo nuo purvo ir nešvarumų.",lt
+8,Priekinė dalis,"Visas priekinis automobilio korpuso skyrius, dažnai apima buferį, žibintus ir groteles.",lt
+9,Priekinė fasada ir apdailos skydelis,Fasadas yra dekoratyvinė priekinė panelė; viršutinė panelė laiko žibintus ir groteles.,lt
+10,Grotelės,"Apsauginės grotelės arba juostos, leidžiančios orui patekti į radiatorių.",lt
+11,Stulpelis ir vidinė apdaila,"Vertikalios stogo atramos (A, B, C statramsčiai), dažnai padengtos kietu plastiku.",lt
+12,Galinis sparnas,"Kėbulo dalis tarp galinių durų ir bagažinės, apima galinius ratus.",lt
+13,Radiatoriaus laikiklis,"Rėmas, laikantis radiatorių ir dažnai žibintus bei groteles.",lt
+14,Slenkstis,"Apatinė šoninė dalis po durimis, suteikia struktūrinį tvirtumą.",lt
+15,Stogo bagažinė,"Stogo bėgeliai, skirti bagažui ar įrangai vežti.",lt
+16,Spoileris (priekinis / galinis),"Aerodinaminiai elementai, mažinantys keliamąją jėgą ar pasipriešinimą; galinis aptakas dažnai yra sparno formos.",lt
+17,Apatinė apdaila,"Panelė po buferiu, skirta aerodinamikai ar išvaizdai pagerinti.",lt
+18,Bagažinė / galinis dangtis,Automobilio galinis laikymo skyrius.,lt
+19,Bagažinės užraktas,"Mechanizmas, užrakinantis bagažinę.",lt
+20,Suvirinta konstrukcija,"Kėbulo dalys ar struktūros, nuolat sujungtos suvirinimu.",lt
+21,Veidrodėlis,"Paprastai reiškia šoninius veidrodėlius (šoninius veidrodžius), skirtus galinio vaizdo stebėjimui.",lt
+22,Numerio laikiklis,"Tvirtinimo elementas, laikantis valstybinį numerį.",lt
+23,Išorinė / vidinė durų rankena,"Rankenėlės, skirtos durų atidarymui iš išorės ir vidaus.",lt
+24,Durų valdymo modulis,"Elektroninis blokas, valdantis langus, veidrodėlius, užrakinimą ir pan.",lt
+25,Durų sandariklis,"Guminė tarpinė, neleidžianti vandeniui, dulkėms ir triukšmui patekti vidun.",lt
+26,Drėgmės apsauga (watershield),"Apsauginė plėvelė durų viduje, sauganti vidinius komponentus nuo drėgmės.",lt
+27,Vyrių komplektas,"Metalinė jungtis, leidžianti durims atsidaryti ir užsidaryti.",lt
+28,Durų užraktas,"Mechaninis įtaisas, tvirtai uždarantis duris.",lt
+29,Durų spyna / elektrinis užraktas,Rankiniai arba elektriniai durų užrakinimo/atrakinimo mechanizmai.,lt
+30,Centrinis užraktas,"Sistema, vienu metu užrakinanti/atrakinanti visas duris.",lt
+31,Kuro bako dangtelis,"Maža durelė kėbule, dengianti kuro dangtelį.",lt
+32,Stiklas,"Šoniniai stiklo langai, dažnai grūdinti arba laminuoti.",lt
+33,Stoglangis,"Stogo panelė, kuri gali būti atidaryta šviesai ir orui.",lt
+34,Stoglangio variklis,"Variklis, valdantis stoglangio atidarymą/uždarymą.",lt
+35,Langų variklis,"Variklis, valdantis elektrinių langų judėjimą aukštyn/žemyn.",lt
+36,Langų keltuvas,"Mechanizmas duryse, kuris kelia ar leidžia langą.",lt
+37,Langų sandariklis,"Guminė tarpinė aplink langą, mažinanti vėjo ir vandens triukšmą.",lt
+38,Antena (komplektas),"Struktūra, priimanti radijo signalus.",lt
+39,Antenos laidas,Jungia anteną su radijo sistema.,lt
+40,Radijas / medijos grotuvas / imtuvas,Garso sistemos pramogoms ir informacijai.,lt
+41,Garsiakalbis / žemų dažnių garsiakalbis,Paverčia elektros signalus garsu; žemų dažnių garsiakalbiai stiprina bosą.,lt
+42,Prietaisų skydelis,Panelė su prietaisais ir valdikliais priešais vairuotoją.,lt
+43,Prietaisų blokas,"Rodo greitį, variklio apsukas, kuro ir temperatūros lygį.",lt
+44,Kilimėliai / grindų danga,"Medžiaga, dengianti grindis komfortui ir izoliacijai.",lt
+45,Centrinė konsolė,Valdymo zona tarp priekinių sėdynių.,lt
+46,Slaptas skyrius,Paslėpta vieta daiktams laikyti.,lt
+47,Porankis,"Paminkštinta dalis duryse ar konsolėje, skirta rankoms ilsėtis.",lt
+48,Suolas / kibirinė sėdynė,Suolas – plokščia sėdynė per visą plotį; individualios – kibiro tipo sėdynės.,lt
+49,Galvos atrama,Reguliuojamas atramas galvai ir kaklui virš sėdynių.,lt
+50,Saugos diržas,"Saugos įtaisas, sulaikantis keleivius susidūrimo metu.",lt
+51,Sėdynės laikiklis / bėgelis,"Tvirtinimo mechanizmas, leidžiantis sėdynes reguliuoti pirmyn/atgal.",lt
+52,Sėdynės užvalkalas,"Apsauginis audinys arba oda, dengiantys automobilio sėdynes.",lt
+53,Vaikiška kėdutė,Speciali saugos kėdutė vaikams.,lt
+54,Tvirtinimo detalės / veržlės / varžtai / dangteliai / tarpinės / kniedės,"Tvirtinimo elementai, jungiantieji komponentus.",lt
+55,Pirštinių dėžutė,Maža daiktadėžė prietaisų skydelyje.,lt
+56,"Rankena („O, velnias!“)","Rankenėlė prie stogo krašto, skirta įsilaikyti įlipant/išlipant arba posūkių metu.",lt
+57,Saulės skydelis,"Atverčiama panelė, sauganti nuo saulės pro priekinį stiklą.",lt
+58,Akumuliatorius,Kaupia elektros energiją variklio paleidimui ir elektros sistemoms maitinti.,lt
+59,Akumuliatoriaus laikiklis,"Skyrius, kuriame saugiai laikoma baterija.",lt
+60,Laidai,"Elektros laidai, jungiantys akumuliatorių su automobilio sistemomis.",lt
+61,Valdymo sistema,"Valdo elektrinius komponentus, pvz., jutiklius, langus ir kt.",lt
+62,Įtampos reguliatorius,"Reguliuoja įtampos išėjimą iš generatoriaus, kad akumuliatorius būtų įkrautas.",lt
+63,Generatorius,"Įkrauna akumuliatorių varikliui veikiant, tiekia elektros energiją.",lt
+64,Generatoriaus dalys,"Guoliai ir ventiliatoriai, susiję su generatoriumi.",lt
+65,Starteris,"Variklis, paleidžiantis automobilio variklį.",lt
+66,Starterio variklis / solenoidas / pavara,"Paleidiklio variklis, įjungiantis variklio paleidimą, solenoidas – tai perjungimo mechanizmas.",lt
+67,Uždegimo žvakė,Uždega oro ir kuro mišinį cilindruose.,lt
+68,Uždegimo ritė,Paverčia baterijos įtampą į aukštą įtampą žvakei maitinti.,lt
+69,Skirstytuvas,Nukreipia elektros srovę į reikiamą cilindrą.,lt
+70,Jungikliai,"Durų, uždegimo, langų, vairo kolonėlės jungikliai – valdo automobilio sistemas.",lt
+71,Jutikliai (oro pagalvėms),Aptinka avarijas ir aktyvuoja oro pagalves.,lt
+72,Šviesos jutiklis,Aptinka šviesos lygį ir automatiškai valdo žibintus.,lt
+73,Detonacijos jutiklis,"Stebi variklio vibracijas, kad laiku aptiktų detonaciją.",lt
+74,Kuro / alyvos / temperatūros / slėgio jutikliai,"Stebi sistemas: kuro lygį, alyvos spaudimą, variklio temperatūrą, padangų slėgį.",lt
+75,Oro srauto jutiklis,"Matuoja oro kiekį, patenkantį į variklį kuro kontrolei.",lt
+76,Velenų padėties jutikliai,Nustato paskirstymo arba alkūninio veleno padėtį variklio laiko sinchronizavimui.,lt
+77,Laidų pynės,"Laidų rinkiniai, nukreipiantys elektros srovę į skirtingus komponentus.",lt
+78,Relės / saugikliai / saugiklių dėžutė,"Komponentai, apsaugantys grandines, nutraukdami srovę, kai būtina.",lt
+79,Spidometras / tachometras / odometras / ampermetras,"Priemonės, matuojančios greitį, apsukas, nuvažiuotą atstumą ir elektros srovę.",lt
+80,Kuro lygio matuoklis / vandens temperatūros / įtampos / vakuumo matuoklis,"Rodo kuro lygį, variklio temperatūrą, baterijos įtampą ir vakuumo spaudimą.",lt
+81,Variklio blokas,"Pagrindinė struktūra, kurioje yra cilindrai ir kiti variklio komponentai.",lt
+82,Cilindrų galvutė,"Viršuje esanti dalis, kurioje yra vožtuvai, paskirstymo velenai ir pan.",lt
+83,Alkūninis velenas,Paverčia stūmoklio judėjimą sukamuoju judesiu.,lt
+84,Stūmoklis,"Juda aukštyn ir žemyn cilindre, generuodamas galią.",lt
+85,Jungiamasis strypas,Jungia stūmoklį su alkūniniu velenu.,lt
+86,Paskirstymo velenas,Valdo vožtuvų atsidarymo ir užsidarymo laiką.,lt
+87,Svirtelė,Perduoda judesį iš paskirstymo veleno į vožtuvus.,lt
+88,Vožtuvas (įsiurbimo / išmetimo / spyruoklė / dangtelis),Įsiurbimo ir išmetimo vožtuvai reguliuoja oro/kuro tekėjimą; spyruoklės laiko juos vietoje.,lt
+89,Paskirstymo diržas / papildomas diržas,"Diržai, užtikrinantys tikslų variklio komponentų sinchronizavimą.",lt
+90,Variklio tvirtinimas / slopintuvas / vibracijos slopintuvas,"Laiko variklį tvirtai, absorbuodamas vibracijas.",lt
+91,Alyvos siurblys / karteris / filtras / sietelis,"Alyvos siurblys cirkuliuoja alyvą, filtras ją valo, karteris ją laiko.",lt
+92,Vandens siurblys,Cirkuliuoja aušinimo skystį per variklį ir radiatorių.,lt
+93,Radiatorius,"Aušina variklį, išsklaidydamas šilumą iš aušinimo skysčio.",lt
+94,Radiatoriaus ventiliatorius,Padeda radiatoriui efektyviau išsklaidyti šilumą.,lt
+95,Tarpinės / sandarikliai,Neleidžia skysčiams ir dujoms ištekėti iš variklio.,lt
+96,PCV vožtuvas,"Valdo karterio slėgį, kad būtų išvengta alyvos nutekėjimo ir emisijų.",lt
+97,Turbina / kompresorius,"Priverstinio įsiurbimo sistemos, didinančios variklio galią suspausdamos įsiurbiamą orą.",lt
+98,Oro filtras / įsiurbimo korpusas / kolektorius,"Filtruoja orą prieš jam patenkant į variklį, įsiurbimo kolektorius paskirsto jį tolygiai.",lt
+99,Droselio sklendė / karbiuratorius,"Valdo oro ir kuro kiekį, patenkantį į variklį degimui.",lt
+100,Kaitinimo žvakė,"Padeda užvesti dyzelinius variklius, pašildydamas degimo kamerą.",lt
+101,Kuro purkštukas / kuro magistralė / kuro elementas,"Purkštukas tiekia kurą, kuro magistralė paskirsto, kuro bakas saugo.",lt
+102,Oro kondicionieriaus kompresorius,Suspaudžia šaltnešį ir cirkuliuoja jį per A/C sistemą.,lt
+103,Kondensatorius,"Atvėsina šaltnešį, paverčiant jį iš dujų į skystį.",lt
+104,Garintuvas,"Absorbuoja šilumą iš salono oro, kad jį atvėsintų.",lt
+105,Sankaba,Įjungia ir išjungia kompresorių pagal aušinimo poreikį.,lt
+106,Relė (A/C),Veikia kaip jungiklis A/C kompresoriaus valdymui.,lt
+107,Žarnos (A/C),Neša šaltnešį visoje A/C sistemoje.,lt
+108,Vožtuvai (A/C),Reguliuoja šaltnešio srautą ir slėgį sistemoje.,lt
+109,Šaldytuvas (A/C),Atvėsina įeinantį orą komforto užtikrinimui.,lt
+110,Plėtimosi vožtuvas,"Reguliuoja šaltnešio patekimą į garintuvą, valdo aušinimą.",lt
+111,Šildytuvas,"Šildo saloną, naudodamas variklio aušinimo sistemą.",lt
+112,Ventiliatoriaus variklis,Judina orą per šildymo ir A/C sistemas.,lt
+113,Ratlankiai,"Metalinė struktūra, laikanti padangą ir prijungta prie rato.",lt
+114,Ratlankio dangtelis,"Dangalas, slepiantis ratų veržles ir pagerinantis išvaizdą.",lt
+115,Padanga,"Guminė išorinė rato dalis, liečianti kelią.",lt
+116,Rato smeigė,"Metalinė ašis, išsikišusi iš rato stebulės, prie kurios tvirtinamas ratas.",lt
+117,Rato cilindras,"Stabdžių sistemos dalis, dirbanti su stabdžių kaladėlėmis, kad sustabdytų ratą.",lt
+118,Padangų slėgio matuoklis,Matuoja padangų oro slėgį.,lt
+119,Stabdžių kaladėlės,"Trintinė medžiaga, spaudžianti diską, kad sulėtintų transporto priemonę.",lt
+120,Stabdžių diskas (rotorius),"Diskas, prie kurio spaudžiama kaladėlė sustabdant ratą.",lt
+121,Stabdžių būgnas,"Cilindro formos dalis, veikianti kartu su stabdžių trinkelėmis būgnų sistemoje.",lt
+122,Stabdžių trinkelės,"Lenkta detalė, spaudžianti stabdžių būgną, kad sulėtintų ratą.",lt
+123,Suportas,"Apkabos formos detalė, spaudžianti stabdžių kaladėles prie disko.",lt
+124,Pagrindinis cilindras,Paverčia stabdžių pedalo jėgą į hidraulinį slėgį.,lt
+125,Stabdžių servopavaros,"Komponentas, padedantis padidinti stabdymo jėgą.",lt
+126,Stabdžių stiprintuvas,"Naudoja vakuumą, kad padėtų stabdyti mažesne jėga.",lt
+127,Rankinio stabdžio svirtis,"Svirtis, naudojama rankiniam stabdžiui įjungti.",lt
+128,Stabdžių žarnos / vamzdžiai,"Vamzdžiai, nešantys stabdžių skystį iš pagrindinio cilindro į stabdžių komponentus.",lt
+129,Stabdžių vožtuvai,Valdo stabdžių skysčio paskirstymą ir slėgį sistemoje.,lt
+130,ABS sistema,ABS – padeda išlaikyti valdymą stipriai stabdant.,lt
+131,Stabdžių jutikliai,Stebi stabdžių sistemos būklę.,lt
+132,Proporcijos vožtuvas,Reguliuoja stabdžių skysčio slėgį.,lt
+133,Matavimo vožtuvas,Valdo hidraulinės sistemos slėgį ir laiką.,lt
+134,Stabdžių lemputė,"Rodo, kad stabdžiai įjungti, matoma gale.",lt
+135,Stabdžių įspėjimo indikatorius,Perspėja apie stabdžių sistemos problemas.,lt
+136,Valdymo svirtis,"Pakabos dalis, jungianti ratą su automobilio rėmu.",lt
+137,Amortizatorius,"Sugeria kelio smūgius, gerina komfortą.",lt
+138,Statramsčiai,"Pakabos dalis, sujungianti amortizatorių su kitomis dalimis.",lt
+139,Spiralinės / lapinės / oro spyruoklės,"Spyruoklės, palaikančios automobilio aukštį.",lt
+140,Stabilizatoriaus strypas,Sumažina kėbulo poslinkius posūkiuose.,lt
+141,Vairo traukė,Jungia vairo pavarą su ratais.,lt
+142,Jungiamoji traukė,Stiprina ar stabilizuoja pakabos sistemą.,lt
+143,Pitmano svirtis,Sujungia vairavimo mechanizmą su vairo jungtimis.,lt
+144,Atraminė svirtis,Laiko vairo jungtis.,lt
+145,Vairo kolonėlė,Paverčia vairo sukimą į šoninius ratų judesius.,lt
+146,Vairo dėžė,Sujungia vairą su vairo mechanizmu.,lt
+147,Vairas,Vairuotojo naudojamas vairas.,lt
+148,Vairo kolonėlės komplektas,"Ašis, jungianti vairą su vairo mechanizmu.",lt
+149,Vairo traukės galas,"Vairo mechanizmo galas, jungiantis su vairo svirtimi.",lt
+150,Šarnyras,"Ašies taškas, leidžiantis sklandų judėjimą tarp rato ir rėmo.",lt
+151,Įvorės,"Guminės detalės, mažinančios trintį ir nusidėvėjimą.",lt
+152,Ašies galvutė,"Komponentai, jungiantieji ratus su pakaba ir leidžiantys jiems suktis.",lt
+153,Karališkas kaištis,"Sukimosi taškas, leidžiantis ratams suktis vairuojant.",lt
+154,Sankabos komplektas,"Sistema, jungianti ir atjungianti variklio galią nuo pavarų dėžės.",lt
+155,Sankabos pedalas,"Pedalas, naudojamas sankabai įjungti/atjungti.",lt
+156,Sankabos trosas,"Kabelis, jungiantis pedalą su sankabos mechanizmu.",lt
+157,Sankabos diskas,"Trintinė plokštė, jungiasi su smagračiu ir perduoda galią.",lt
+158,Smagratis,"Sunkus diskinis elementas, padedantis varikliui veikti tolygiai.",lt
+159,Pavarų dėžė,"Pavarų sistema, valdanti galios perdavimą.",lt
+160,Diferencialas,"Komponentas, leidžiantis ratams suktis skirtingu greičiu posūkiuose.",lt
+161,Perjungimo svirtis,"Svirtis, skirta pasirinkti pavarą.",lt
+162,Pavarų svirtis,Kitas pavarų perjungimo svirties pavadinimas.,lt
+163,Pavarų rankenėlė,Rankena pavarų perjungimo svirtyje.,lt
+164,Pavaros velenas,"Ašis, perduodanti galią iš variklio į ratus.",lt
+165,Kardaninis velenas,"Pavarų velenas, perduodantis galią iš variklio į diferencialą.",lt
+166,U-jungtis (universali jungtis),Lanksti jungtis tarp pavarų velenų.,lt
+167,Sukimo momento keitiklis,"Įtaisas, perduodantis sukimo momentą automatinėje dėžėje.",lt
+168,Pavarų dėžės dėklas,Apsauginė transmisijos dugno plokštė.,lt
+169,Ašies velenas,"Velenas, jungiantis rato stebulę su diferencialu.",lt
+170,Išėjimo velenas,"Ašis, perduodanti sukamąją galią iš dėžės.",lt
+171,Pavarų komplektas,"Pavarų rinkinys, valdantis greitį ir sukimo momentą.",lt
+172,Kuro siurblys,Siurbia kurą iš bako į variklį.,lt
+173,Kuro filtras,Filtruoja priemaišas iš kuro.,lt
+174,Kuro dangtelis,Kuro bako sandarinimo dangtelis.,lt
+175,Kuro bakas,"Talpykla, laikanti kurą.",lt
+176,Kuro aušintuvas,Aušina kurą optimaliam veikimui.,lt
+177,Kuro magistralė,Tiekiantis kurą purkštukams.,lt
+178,Kuro vandens separatorius,"Filtras, atskiriantis vandenį iš kuro.",lt
+179,Kuro purkštukas,"Purkštukas, purškiantis kurą tiesiai į degimo kamerą.",lt
+180,Kuro linijos,"Vamzdeliai, nešantys kurą iš bako į variklį.",lt
+181,Garų žarna,"Žarna, nešanti kuro garus atgal į variklį.",lt
+182,Kuro slėgio reguliatorius,Palaiko pastovų kuro slėgį.,lt
+183,Radiatorius,"Aušinimo sistemos komponentas, išsklaidantis šilumą.",lt
+184,Radiatoriaus dangtelis,"Dangtelis, sandarinantis radiatorių ir palaikantis slėgį.",lt
+185,Išsiplėtimo bakelis,"Talpa, sauganti išsiplėtusį aušintuvą.",lt
+186,Vandens išleidimo kakliukas,Metalinis sujungimas tarp radiatoriaus ir variklio.,lt
+187,Vandens vamzdis,"Vamzdžiai, nešantys aušintuvą.",lt
+188,Vandens siurblys,"Siurblys, cirkuliuojantis aušintuvą.",lt
+189,Aušinimo ventiliatorius,"Ventiliatorius, aušinantis radiatorius.",lt
+190,Ventiliatoriaus sankaba,"Įrenginys, reguliuojantis ventiliatoriaus greitį.",lt
+191,Ventiliatoriaus mentės,"Sparnai, stumiantys orą per radiatorių.",lt
+192,Žarnos,"Lankstūs vamzdžiai, pernešantys aušintuvą.",lt
+193,Tarpinės,"Tarpinės, neleidžiančios nutekėjimams.",lt
+194,Duslintuvas (tylintuvas),Slopina išmetamųjų dujų triukšmą.,lt
+195,Rezonatorius,"Garso reguliatorius, dažnai prieš duslintuvą.",lt
+196,Šilumos skydas,"Skydas, saugantis nuo išmetimo karščio.",lt
+197,Išmetimo kolektorius,Surenka išmetimo dujas iš cilindrų.,lt
+198,Išmetimo vamzdis,"Vamzdžiai, vedantys išmetimo dujas į išorę.",lt
+199,Išmetimo tarpinių komplektas,"Sistema, sumažinanti išmetamo teršalų kiekį.",lt
+200,Išmetimo laikikliai,Filtruoja teršalus iš išmetimo dujų.,lt
+201,Katalizatorius,"Įrenginys, kuris sumažina kenksmingų išmetamųjų dujų kiekį, paverčiant juos į mažiau kenksmingas medžiagas, tokias kaip vanduo ir anglies dioksidas.",lt
+202,EGR vožtuvas (išmetamųjų dujų recirkuliacijos vožtuvas),"Komponentas, kuris recirkuliuoja kai kurias išmetamąsias dujas atgal į variklį, kad sumažintų azoto oksidų išmetimą.",lt
+203,"Tarpinės (plokščios, formuotos, žiedinės)","Tarpinės, kurios neleidžia skysčiams arba dujoms nutekėti tarp dviejų paviršių. Plokščios ir formuotos tarpinių formos yra specifinės, o O žiedai yra apvalios sandarinimo detalės, kurios sukuria spaudimui atsparias sandūras jungtyse.",lt
+204,Lipdukai,"Lipdukai ar etiketės, priklijuojami prie transporto priemonės išorės identifikavimui ar estetiniais tikslais.",lt
+205,Etiketės,"Spausdintos etiketės, kurios pateikia informaciją apie dalį ar transporto priemonę, pvz., įspėjimus ar dalių specifikacijas.",lt
+206,Pavadinimo lentelės,"Plokštės, kurios identifikuoja transporto priemonės markę ar modelį arba jos komponentus.",lt
+207,Dažai,"Danga, kuri taikoma transporto priemonės arba jos dalies paviršiui apsaugai ir estetikai.",lt
+208,Lipni juosta,"Klijavimo juosta, naudojama įvairiems tikslams, pvz., dalių tvirtinimui arba tarpų sandarinimui.",lt
+209,Folia,"Plonos metalinės plokštės (dažnai aliuminio), naudojamos įvairiems tikslams, įskaitant izoliaciją arba sandarinimą.",lt
+210,Guminės dalys,"Dalys, pagamintos iš gumos, dažnai naudojamos sandarinimui, tvirtinimui ir izoliacijai.",lt
+211,Formuotos detalės,"Komponentai, suformuoti iš plastiko ar gumos medžiagų, formuojant juos į specifines formas naudojant liejimo procesus.",lt
+212,Garsinis signalas,"Įrenginys, kuris gamina garsų garsą, kad įspėtų kitus vairuotojus ar pėsčiuosius.",lt
+213,Trimitinis signalas,"Rago tipas, kuris turi išskirtinį, garsų ir muzikalesnį toną, dažnai naudojamas transporto priemonėse signalizavimui.",lt
+214,Tarpinė,"Plonas medžiagos gabalas, naudojamas dalims pritaikyti arba jas tinkamai suderinti.",lt
+215,Saugos kaištis,"Tvirtinimo elementas, naudojamas užfiksuoti smeigtuką ar varžtą vietoje, dažnai naudojamas automobilių taikymuose, kad būtų išvengta dalių atsilaisvinimo.",lt
+216,Laikikliai,"Metalinis arba plastikinis atramas, kurios laiko komponentus vietoje, dažnai naudojamos dalims pritvirtinti prie transporto priemonės rėmo.",lt
+217,Nedideli įlenkimai,"Maži įlenkimai, kurie nesukelia dažų pažeidimų; taisomi be perdažymo naudojant specializuotus įrankius.",lt
+218,Dideli įlenkimai,"Didesni įlenkimai, kurie sugadina dažus arba reikalauja užpildymo kūno paviršiaus išlyginti prieš perdažant.",lt
+219,Smulkūs įbrėžimai,"Maži, seklių įbrėžimų pėdsakai ant dažų, kurie gali būti iššlifuoti arba užtepti dažais.",lt
+220,Dideli įbrėžimai,"Gilesni įbrėžimai, kurie prasiskverbė per dažus ir gali reikalauti šlifavimo sugadintos vietos ir perdažymo.",lt
+221,Buferio įbrėžimas,"Įbrėžimai ar maži įlenkimai ant bamperio, kuriems gali prireikti šlifavimo, užpildymo ir perdažymo.",lt
+222,Pilnas perdažymas,"Viso panelio (pavyzdžiui, durų, sparno ar ketvirtinės dalies) perdažymas, kad atitiktų transporto priemonės originalią spalvą, įskaitant gruntą, pagrindinį dažą ir viršutinį sluoksnį.",lt
+223,Viso automobilio dažymas,"Viso automobilio perdažymas, kuris gali apimti dalių, tokių kaip apdaila ir bamperiai, išardymą. Tai yra kosmetiniai atnaujinimai ir spalvos pokyčiai.",lt
+224,Skaidrios dangos remontas,"Atsigavimas arba viršutinio sluoksnio atnaujinimas, kuris buvo pažeistas UV spinduliais ir oro sąlygomis.",lt
+225,Ratų remontas,"Smulkūs kosmetiniai remontai aliuminio arba chromuotų ratlankių, pavyzdžiui, kraštų nuėmimas, įbrėžimai arba įtrūkimai, po kurių seka perdažymas arba poliravimas.",lt
+226,Žibintų atnaujinimas,"Šlifavimas ir poliravimas, siekiant pašalinti miglą, pageltimą ar oksidaciją nuo žibintų.",lt
+227,Rūdžių pašalinimas ir apdirbimas,"Paviršinio rūdžių pašalinimas ir srities apdorojimas, siekiant užkirsti kelią tolesniam pažeidimui, paprastai su šlifavimu ir gruntavimu prieš perdažant.",lt
+228,Vinilo plėvelė,"Vinilinė plėvelė, kuri taikoma dalims arba visam automobiliui, siekiant pakeisti išvaizdą (kaip nepermanentiška alternatyva dažymui).",lt
