@@ -59,6 +59,12 @@ public class AutoPartsSqlProvider {
             }
             FROM("auto_parts_and_services apas");
             JOIN("auto_parts_and_services_categories apasc ON apas.category_id = apasc.id");
+            if (category != null && !category.isEmpty()) {
+                String inClause = "apasc.id IN " + category.stream()
+                        .map(Object::toString)
+                        .collect(Collectors.joining(", ", "(", ")"));
+                WHERE(inClause);
+            }
             if (lang != null) {
                 LEFT_OUTER_JOIN("auto_parts_and_services_translations apast ON apast.language_code=#{lang} AND apas.id=apast.id");
                 if (search != null && !search.isEmpty()) {
@@ -75,26 +81,21 @@ public class AutoPartsSqlProvider {
                     ORDER_BY("CASE WHEN apas.auto_part ILIKE CONCAT(#{search}, '%') THEN 1 ELSE 2 END, apas.id");
                 }
             }
-            if (category != null && !category.isEmpty()) {
-                String inClause = "apasc.id IN " + category.stream()
-                        .map(s -> "'" + s + "'")
-                        .collect(Collectors.joining(", ", "(", ")"));
-                WHERE(inClause);
-            }
             LIMIT(limit);
             OFFSET(offset);
         }}.toString();
     }
 
-    public String getAutoPartsAndServicesCount(List<String> category, String search, String lang) {
+    public String getAutoPartsAndServicesCount(List<Integer> category, String search, String lang) {
         return new SQL() {{
             SELECT("COUNT(*)");
             FROM("auto_parts_and_services apas");
             JOIN("auto_parts_and_services_categories apasc ON apas.category_id = apasc.id");
             if (category != null && !category.isEmpty()) {
                 String inClause = "apasc.id IN " + category.stream()
-                        .map(s -> "'" + s + "'")
+                        .map(Object::toString)
                         .collect(Collectors.joining(", ", "(", ")"));
+                System.out.println(inClause);
                 WHERE(inClause);
             }
             if (lang != null) {

@@ -96,4 +96,7 @@ public interface ClaimRepo {
 
     @SelectProvider(value = ClaimSqlProvider.class, method = "getFilteredPagedClaimCountByUserId")
     int getFilteredPagedClaimCountByUserId(@Param("userId") int userId, @Param("status") List<ClaimStatus> status);
+
+    @Update("UPDATE claims c SET c.claim_status = #{status} WHERE c.id = #{claimId}")
+    void updateClaimStatus(RequestUpdateClaimStatus updateClaimStatus);
 }

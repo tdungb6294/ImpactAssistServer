@@ -215,4 +215,8 @@ public class ClaimService {
         claimRepo.shareClaim(share);
         return 0;
     }
+
+    public void updateClaimStatus(RequestUpdateClaimStatus updateClaimStatus) {
+        claimRepo.updateClaimStatus(updateClaimStatus);
+    }
 }

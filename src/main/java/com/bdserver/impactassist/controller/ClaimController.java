@@ -73,7 +73,13 @@ public class ClaimController {
     }
 
     @PutMapping("/share")
-    public int shareClaimWithLocalExpert(@RequestBody RequestShareClaimDAO share) {
+    public int shareClaimWithLocalExpert(@RequestBody @Valid RequestShareClaimDAO share) {
         return claimService.shareClaim(share);
+    }
+
+    @PreAuthorize("hasAuthority('INSURANCE_COMPANY')")
+    @PutMapping
+    public void updateClaimStatus(@RequestBody @Valid RequestUpdateClaimStatus updateClaimStatus) {
+        claimService.updateClaimStatus(updateClaimStatus);
     }
 }

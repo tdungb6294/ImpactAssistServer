@@ -4,9 +4,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class RequestShareClaimDAO {
+public class RequestUpdateClaimStatus {
     @NotNull
-    private int claimId;
+    private Integer claimId;
     @NotNull
-    private int localExpertId;
+    private ClaimStatus status;
 }

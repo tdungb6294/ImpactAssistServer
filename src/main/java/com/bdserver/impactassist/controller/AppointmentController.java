@@ -24,16 +24,16 @@ public class AppointmentController {
     }
 
     @PostMapping()
-    Integer registerAppointment(@Valid @RequestBody RequestAppointmentDAO request) throws BadRequestException {
+    public Integer registerAppointment(@Valid @RequestBody RequestAppointmentDAO request) throws BadRequestException {
         return appointmentService.registerAppointment(request);
     }
 
     @GetMapping
-    Map<String, Object> getAllAppointments(@RequestParam(required = false) Integer userId,
-                                           @RequestParam(required = false) Boolean expert,
-                                           @RequestParam(required = false) List<AppointmentStatus> appointmentStatus,
-                                           @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size,
-                                           @RequestParam(required = false) List<LocalDate> date) {
+    public Map<String, Object> getAllAppointments(@RequestParam(required = false) Integer userId,
+                                                  @RequestParam(required = false) Boolean expert,
+                                                  @RequestParam(required = false) List<AppointmentStatus> appointmentStatus,
+                                                  @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size,
+                                                  @RequestParam(required = false) List<LocalDate> date) {
         if (expert != null && expert) {
             return appointmentService.getAppointmentsByExpertId(appointmentStatus, date, page, size);
         }
@@ -44,13 +44,13 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    FullAppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
+    public FullAppointmentDAO getAppointmentsByUserId(@PathVariable int id) {
         return appointmentService.getAppointmentById(id);
     }
 
     @PreAuthorize("hasAuthority('LOCAL_EXPERT')")
     @PutMapping
-    void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) throws BadRequestException {
+    public void updateAppointment(@RequestBody UpdateAppointmentStatusDAO updateAppointmentStatusDAO) throws BadRequestException {
         appointmentService.updateAppointmentStatus(updateAppointmentStatusDAO);
     }
 }
