@@ -29,5 +29,8 @@ public class AdminUserSetup implements CommandLineRunner {
             Integer userId = userRepo.createUser(user);
             userRoleRepo.createUser(userId, 4);
         }
+        if (userRepo.findByUsername("ai") == null) {
+            userRepo.createUserWithId(0, "AI", "ai", "ai", "+123456789");
+        }
     }
 }

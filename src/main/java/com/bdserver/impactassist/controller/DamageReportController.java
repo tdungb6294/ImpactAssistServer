@@ -29,7 +29,7 @@ public class DamageReportController {
     }
 
     @GetMapping("/{id}")
-    public ResponseDamageReportDAO getReport(@PathVariable Integer id) {
-        return damageReportService.getReport(id);
+    public ResponseDamageReportDAO getReport(@PathVariable Integer id, @RequestParam(required = false) String lang) {
+        return damageReportService.getReport(id, lang);
     }
 }

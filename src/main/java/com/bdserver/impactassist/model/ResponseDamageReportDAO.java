@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class ResponseDamageReportDAO {
-    private DamageReportDAO damageReportDAO;
+    private DamageReportDAO damageReport;
     private List<AutoPartsAndServicesDAO> autoPartsAndServices;
 }

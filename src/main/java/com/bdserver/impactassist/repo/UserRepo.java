@@ -17,6 +17,9 @@ public interface UserRepo {
     @Select("INSERT INTO users(full_name, email, password, phone) VALUES(#{fullName}, #{email}, #{password}, #{phone}) RETURNING id")
     Integer createUser(RegisterUserDAO user);
 
+    @Insert("INSERT INTO users(id, full_name, email, password, phone) VALUES (#{id}, #{fullName}, #{email}, #{password}, #{phone})")
+    Integer createUserWithId(int id, String fullName, String email, String password, String phone);
+
     @Select("SELECT id, full_name as fullName, email, password, phone, created_at as createdAt, updated_at as updatedAt FROM users WHERE email = #{username}")
     UserDAO findByUsername(String username);
 

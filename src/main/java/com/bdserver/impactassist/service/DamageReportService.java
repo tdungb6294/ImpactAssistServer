@@ -30,9 +30,14 @@ public class DamageReportService {
         return damageReportRepo.getReportList(claimId);
     }
 
-    public ResponseDamageReportDAO getReport(Integer id) {
+    public ResponseDamageReportDAO getReport(Integer id, String lang) {
         DamageReportDAO damageReport = damageReportRepo.getDamageReport(id);
-        List<AutoPartsAndServicesDAO> autoParts = damageReportRepo.getAutoPartsAndServicesByReportId(id);
-        return ResponseDamageReportDAO.builder().damageReportDAO(damageReport).autoPartsAndServices(autoParts).build();
+        List<AutoPartsAndServicesDAO> autoParts;
+        if (lang == null) {
+            autoParts = damageReportRepo.getAutoPartsAndServicesByReportId(id);
+        } else {
+            autoParts = damageReportRepo.getAutoPartsAndServicesByReportIdAndLanguage(id, lang);
+        }
+        return ResponseDamageReportDAO.builder().damageReport(damageReport).autoPartsAndServices(autoParts).build();
     }
 }
