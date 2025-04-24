@@ -4,19 +4,20 @@ import com.bdserver.impactassist.model.PartialDamageReportDAO;
 import com.bdserver.impactassist.model.RequestDamageReportDAO;
 import com.bdserver.impactassist.model.ResponseDamageReportDAO;
 import com.bdserver.impactassist.service.DamageReportService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("damage-report")
 public class DamageReportController {
     private final DamageReportService damageReportService;
-
 
     public DamageReportController(DamageReportService damageReportService) {
         this.damageReportService = damageReportService;
@@ -25,6 +26,16 @@ public class DamageReportController {
     @PostMapping
     public Integer createDamageReport(@RequestBody @Valid RequestDamageReportDAO request) {
         return damageReportService.createDamageReport(request);
+    }
+
+    @GetMapping("/ai/{id}")
+    @RateLimiter(name = "myRateLimiter", fallbackMethod = "fallbackMethod")
+    public Integer createDamageReportUsingAI(@PathVariable Integer id) throws IOException {
+        return damageReportService.createDamageReportUsingAI(id);
+    }
+
+    public String fallbackMethod(Exception ex) {
+        return "Rate limit exceeded, please try again later!";
     }
 
     @GetMapping("/claim/{claimId}")

@@ -136,6 +136,17 @@ public class ClaimService {
         return body;
     }
 
+    public List<byte[]> getClaimImages(int claimId) throws IOException {
+        List<byte[]> images = new ArrayList<>();
+        CarClaimMultipartDAO carClaim = claimRepo.getCarClaimDetailsById(claimId);
+        List<String> claimAccidentImages = claimRepo.getClaimAccidentImageNames(claimId);
+        for (String image : claimAccidentImages) {
+            byte[] file = s3Service.downloadFile(image);
+            images.add(file);
+        }
+        return images;
+    }
+
     public Map<String, Object> getClaims(int page, int size, List<ClaimStatus> status) {
         int offset = (page - 1) * size;
         int userId = userService.getUserId();

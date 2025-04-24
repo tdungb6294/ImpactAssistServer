@@ -295,7 +295,7 @@ public class ClaimIntegrationTest {
                 .header("Authorization", "Bearer " + accessToken)).andReturn();
         String json = result.getResponse().getContentAsString();
         ResponseDamageReportDAO responseDamageReport = objectMapper.readValue(json, ResponseDamageReportDAO.class);
-        DamageReportDAO damageReport = responseDamageReport.getDamageReportDAO();
+        DamageReportDAO damageReport = responseDamageReport.getDamageReport();
         assertEquals(1, damageReport.getReportId());
         assertEquals("admin", damageReport.getFullName());
         assertEquals(new BigDecimal("270.00"), damageReport.getEstimatedMinPriceWithoutService());

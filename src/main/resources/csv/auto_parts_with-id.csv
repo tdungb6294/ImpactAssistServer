@@ -1,0 +1,228 @@
+1,Bonnet / Hood
+2,Bonnet / Hood Latch
+3,Bumper (Exposed / Unexposed)
+4,Cowl Screen
+5,Decklid
+6,Fascia Rear and Support
+7,Fender (Wing or Mudguard)
+8,Front Clip
+9,Front Fascia and Header Panel
+10,Grille
+11,Pillar and Hard Trim
+12,Quarter Panel
+13,Radiator Core Support
+14,Rocker Panel
+15,Roof Rack
+16,Spoiler (Front / Rear)
+17,Valance
+18,Trunk / Boot / Hatch
+19,Trunk / Boot Latch
+20,Welded Assembly
+21,Mirror
+22,License Plate Bracket
+23,Outer/Inner Door Handle
+24,Door Control Module
+25,Door Seal
+26,Door Watershield
+27,Hinge
+28,Door Latch
+29,Door Lock / Power Door Locks
+30,Center-locking
+31,Fuel Tank (Filler) Door
+32,Glass
+33,Sunroof
+34,Sunroof Motor
+35,Window Motor
+36,Window Regulator
+37,Window Seal
+38,Antenna Assembly
+39,Antenna Cable
+40,Radio / Media Player / Tuner
+41,Speaker / Subwoofer
+42,Dash Panels / Dashboard
+43,Instrument Cluster
+44,Carpet / Floor Material
+45,Center Console
+46,Trap (Secret Compartment)
+47,Armrest
+48,Bench Seat / Bucket Seat
+49,Headrest
+50,Seat Belt
+51,Seat Bracket / Track
+52,Seat Cover
+53,Children / Baby Car Seat
+54,Fastener / Nut / Screw / Bolt Cap / Shim / Rivet
+55,Glove Compartment
+56,"Grab Handle (""Oh S* Handle"")**"
+57,Sun Visor
+58,Battery
+59,Battery Tray
+60,Cables
+61,Control System
+62,Voltage Regulator
+63,Alternator
+64,Alternator Parts
+65,Starter
+66,Starter Motor / Solenoid / Drive
+67,Spark Plug
+68,Coil
+69,Distributor
+70,Switches:
+71,Airbag Sensors
+72,Light Sensor
+73,Knock Sensor
+74,Fuel/Oil/Temperature/Tire Pressure Sensors
+75,Mass Flow Sensor
+76,Camshaft / Crankshaft Position Sensors
+77,Wiring Harnesses
+78,Relays / Fuses / Fuse Box
+79,Speedometer / Tachometer / Odometer / Ammeter
+80,Fuel Gauge / Water Temp Meter / Voltmeter / Vacuum Gauge
+81,Engine Block
+82,Cylinder Head
+83,Crankshaft
+84,Piston
+85,Connecting Rod
+86,Camshaft
+87,Rocker Arm
+88,Valve (Intake / Exhaust / Spring / Cover)
+89,Timing Belt / Drive Belt / Accessory Belt
+90,Engine Mounting / Damper / Vibration Absorber
+91,Oil Pump / Oil Pan / Oil Filter / Oil Strainer
+92,Water Pump
+93,Radiator
+94,Radiator Fan
+95,Gaskets / Seals
+96,PCV Valve
+97,Turbocharger / Supercharger
+98,Air Filter / Air Intake Housing / Manifold
+99,Throttle Body / Carburetor
+100,Glowplug
+101,Fuel Injector / Fuel Rail / Fuel Cell
+102,A/C Compressor
+103,A/C Condenser
+104,A/C Evaporator
+105,A/C Clutch
+106,A/C Relay
+107,A/C Hoses
+108,A/C Valves
+109,A/C Cooler
+110,A/C Expansion Valve
+111,Heater
+112,Blower Motor
+113,Rims
+114,Hubcap
+115,Tire/Tyre
+116,Wheel Stud
+117,Wheel Cylinder
+118,Tire Pressure Gauge
+119,Brake Pad
+120,Brake Disc (Rotor)
+121,Brake Drum
+122,Brake Shoe
+123,Caliper
+124,Master Cylinder
+125,Brake Booster
+126,Brake Servo
+127,Parking Brake Lever (Hand Brake)
+128,Brake Lines/Hoses
+129,Brake Valves
+130,ABS System
+131,Brake Sensors
+132,Proportioning Valve
+133,Metering Valve
+134,Brake Light
+135,Brake Warning Indicator
+136,Control Arm
+137,Shock Absorber
+138,Struts
+139,Coil/Leaf/Air Springs
+140,Stabilizer Bars (Anti-roll Bars)
+141,Tie Rod
+142,Tie Bar
+143,Pitman Arm
+144,Idler Arm
+145,Steering Rack
+146,Steering Box
+147,Steering Wheel
+148,Steering Column Assembly
+149,Rack End
+150,Ball Joint
+151,Bushings
+152,Spindles
+153,Kingpin
+154,Clutch Assembly
+155,Clutch Pedal
+156,Clutch Cable
+157,Clutch Disk
+158,Flywheel
+159,Gearbox
+160,Differential
+161,Shift Lever
+162,Gear Stick
+163,Gear Knob
+164,Driveshaft
+165,Prop Shaft
+166,U-Joint (Universal Joint)
+167,Torque Converter
+168,Transmission Pan
+169,Axle Shaft
+170,Output Shaft
+171,Gear Set
+172,Fuel Pump
+173,Fuel Filter
+174,Fuel Cap
+175,Fuel Tank
+176,Fuel Cooler
+177,Fuel Rail
+178,Fuel Water Separator
+179,Fuel Injector
+180,Fuel Lines
+181,Vapor Hose
+182,Fuel Pressure Regulator
+183,Radiator
+184,Radiator Cap
+185,Overflow Tank
+186,Water Neck
+187,Water Pipe
+188,Water Pump
+189,Cooling Fan
+190,Fan Clutch
+191,Fan Blades
+192,Hoses
+193,Gaskets
+194,Muffler (Silencer)
+195,Resonator
+196,Heat Shield
+197,Exhaust Manifold
+198,Exhaust Pipe
+199,Exhaust Gaskets
+200,Exhaust Clamps
+201,Catalytic Converter
+202,EGR Valve (Exhaust Gas Recirculation Valve)
+203,"Gaskets (Flat, Moulded, O-rings)"
+204,Decals
+205,Labels
+206,Name Plates
+207,Paint
+208,Adhesive Tape
+209,Foil
+210,Rubber Components
+211,Molded Parts
+212,Horn
+213,Trumpet Horn
+214,Shim
+215,Cotter Pin
+216,Brackets
+217,Minor Dents
+218,Major Dents
+219,Minor Scratches
+220,Major Scratches
+221,Bumper Scratch
+222,Full Repainting
+223,Full Car Respray
+224,Clear Coat Repair
+225,Wheel Repair
+226,Headlight Restoration
+227,Rust Removal and Treatment
+228,Vinyl Wrap
