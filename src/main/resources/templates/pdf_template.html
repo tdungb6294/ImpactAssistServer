@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Damage Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:nth-child(4), td:nth-child(4) {
+            white-space: nowrap
+        }
+    </style>
+</head>
+<body>
+<h1>Damage Report</h1>
+<p>Total Items: <span th:text="${autoPartsAndServices.size()}"></span></p>
+<p>Date: <span th:text="${#temporals.format(date, 'yyyy-MM-dd')}"></span></p>
+<p>By: <span th:text="${fullName}"></span></p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Auto Part</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${autoPartsAndServices}">
+        <td th:text="${item.getAutoPart()}">Auto Part Name</td>
+        <td th:text="${item.getCategoryName()}">Category</td>
+        <td th:text="${item.getDescription()}">Very nice Auto Part</td>
+        <td th:text="${item.getMinPrice()} + ' - ' + ${item.getMaxPrice()} + '$'">1 - 100 $</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Estimated Price Without Services: <span
+        th:text="${estimatedMinPriceWithoutService} + ' - ' + ${estimatedMaxPriceWithoutService} + ' $'"></span></p>
+<p>Estimated Price With Services: <span
+        th:text="${estimatedMinPriceWithService} + ' - ' + ${estimatedMaxPriceWithService} + ' $'"></span></p>
+</body>
+</html>

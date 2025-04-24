@@ -5,6 +5,9 @@ import com.bdserver.impactassist.model.RequestDamageReportDAO;
 import com.bdserver.impactassist.model.ResponseDamageReportDAO;
 import com.bdserver.impactassist.service.DamageReportService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("damage-report")
 public class DamageReportController {
-    public final DamageReportService damageReportService;
+    private final DamageReportService damageReportService;
+
 
     public DamageReportController(DamageReportService damageReportService) {
         this.damageReportService = damageReportService;
@@ -31,5 +35,15 @@ public class DamageReportController {
     @GetMapping("/{id}")
     public ResponseDamageReportDAO getReport(@PathVariable Integer id, @RequestParam(required = false) String lang) {
         return damageReportService.getReport(id, lang);
+    }
+
+    @GetMapping(value = "/generate-pdf/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> generatePdf(@PathVariable Integer id, @RequestParam(required = false) String lang) {
+        byte[] pdfFile = damageReportService.generatePdf(id, lang);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=damage_report.pdf");
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentLength(pdfFile.length);
+        return ResponseEntity.ok().headers(headers).body(pdfFile);
     }
 }

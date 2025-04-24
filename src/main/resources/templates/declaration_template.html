@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <title>Car Accident Declaration Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        p, b {
+            margin: 8px 0 8px 0;
+            padding-left: 2%;
+            padding-right: 2%;
+            text-align: left;
+        }
+
+        .container {
+            height: fit-content;
+            border: black solid 1px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .fifth {
+            width: 19.2%;
+            margin-right: 1%;
+        }
+
+        .third {
+            width: 32.66%;
+            margin-right: 1%;
+        }
+
+        .half {
+            width: 49%;
+            margin-right: 2%;
+        }
+
+        .border {
+            height: 1px;
+            background-color: black;
+        }
+
+        .row-container {
+            width: 100%;
+            height: auto;
+            margin: 0 0 10px 0;
+            display: inline-block;
+            float: left
+        }
+
+        .container:last-child {
+            margin-right: 0;
+        }
+
+        .full-container {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            float: left
+        }
+
+        .no-border {
+            border: none;
+        }
+
+        .no-padding {
+            padding: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Car Accident Declaration Report</h1>
+<div class="full-container">
+    <div class="row-container">
+        <div class="container fifth">
+            <p><b>Vehicle Accident Date</b></p>
+            <div class="border"></div>
+            <p th:text="${#temporals.format(declaration.getDatetime(), 'yyyy-MM-dd')}">iasnfaf sdgsdgs sdgsdgdsg
+                sdgdsg sdfgsd gdsg sdg sdgsdg</p>
+        </div>
+        <div class="container fifth">
+            <p><b>Vehicle Accident Time</b></p>
+            <div class="border"></div>
+            <p th:text="${#temporals.format(declaration.getDatetime(), 'HH:mm')}">iasnfaf iasnfaf sdgsdgs sdgsdgdsg
+                sdgdsg sdfgsd gdsg sdg sdgsdgiasnfaf sdgsdgs sdgsdgdsg sdgdsg sdfgsd
+                gdsg
+                sdg sdgsdg</p>
+        </div>
+        <div class="container fifth">
+            <p><b>Country Location</b></p>
+            <div class="border"></div>
+            <p th:text="${declaration.getAccidentCountryLocation()}">iasnfaf</p>
+        </div>
+        <div class="container fifth">
+            <p><b>Damage To Objects</b></p>
+            <div class="border"></div>
+            <p th:if="${declaration.isDamageToObjects()}">Yes</p>
+            <p th:if="not ${declaration.isDamageToObjects()}">No</p>
+        </div>
+        <div class="container fifth">
+            <p><b>Damage To Other Vehicles</b></p>
+            <div class="border"></div>
+            <p th:if="${declaration.isDamageToCars()}">Yes</p>
+            <p th:if="not ${declaration.isDamageToCars()}">No</p>
+        </div>
+    </div>
+
+    <div class="row-container">
+        <div class="container half">
+            <p><b>Accident Latitude And Longitude</b></p>
+            <div class="border"></div>
+            <p th:text="${declaration.getAccidentLatLng().getLatitude()} + ' ' + ${declaration.getAccidentLatLng().getLongitude()}"></p>
+        </div>
+        <div class="container half">
+            <p><b>Witnesses</b></p>
+            <div class="border"></div>
+            <p th:text="${declaration.getWitnesses()}">iasnfaf iasnfaf sdgsdgs sdgsdgdsg sdgdsg sdfgsd gdsg sdg
+                sdgsdgiasnfaf sdgsdgs sdgsdgdsg sdgdsg sdfgsd
+                gdsg
+                sdg sdgsdg</p>
+        </div>
+    </div>
+
+    <div class="row-container">
+        <div class="container third">
+            <p><b>First Vehicle</b></p>
+            <div class="border"></div>
+            <p><b>Insurer</b></p>
+            <div class="border"></div>
+            <b>Family Name: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getFamilyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Name: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getName()}">iasnfaf iasnfaf sdgsd</p><b>Address: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getAddress()}">iasnfaf iasnfaf sdgsd
+            </p><b>Postal Code: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getPostalCode()}">iasnfaf iasnfaf
+                sdgsd</p><b>Country: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getCountry()}">iasnfaf iasnfaf sdgsd
+            </p><b>Contacts: </b>
+            <p th:text="${declaration.getFirstCar().getInsurer().getContacts()}">iasnfaf iasnfaf sdgsd
+            </p>
+            <div class="border"></div>
+            <p><b>Vehicle</b></p>
+            <div class="border"></div>
+            <b>Car Model: </b>
+            <p th:text="${declaration.getFirstCar().getCar().getCarModel()}">iasnfaf iasnfaf sdgsd</p><b>Car Country
+            Plate: </b>
+            <p th:text="${declaration.getFirstCar().getCar().getCarCountryPlate()}">iasnfaf
+                iasnfaf sdgsd</p><b>Car Country
+            Registration: </b>
+            <p th:text="${declaration.getFirstCar().getCar().getCarCountryRegistration()}">iasnfaf iasnfaf sdgsd</p>
+            <div class="border"></div>
+            <p><b>Insurance</b></p>
+            <div class="border"></div>
+            <b>Insurance Company
+                Name: </b>
+            <p th:text="${declaration.getFirstCar().getInsurance().getInsuranceCompanyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Insurance Policy
+            Number: </b>
+            <p th:text="${declaration.getFirstCar().getInsurance().getInsurancePolicyNumber()}">iasnfaf iasnfaf
+                sdgsd</p><b>Insurance Green
+            Card Number: </b>
+            <p th:text="${declaration.getFirstCar().getInsurance().getInsuranceGreenCardNumber()}">iasnfaf iasnfaf
+                sdgsd</p>
+            <b>Insurance Valid
+                From: </b>
+            <p th:text="${#temporals.format(declaration.getFirstCar().getInsurance().getInsuranceValidFrom(), 'yyyy-MM-dd')}">
+                iasnfaf iasnfaf sdgsd</p>
+            <b>Insurance Valid To: </b>
+            <p th:text="${#temporals.format(declaration.getFirstCar().getInsurance().getInsuranceValidTo(), 'yyyy-MM-dd')}">
+                iasnfaf
+                iasnfaf sdgsd</p>
+            <p th:if="${declaration.getFirstCar().isInsurancePolicyCoverage()}"><b class="no-padding">Insurance Policy
+                Coverage: </b>
+                Yes</p>
+            <p th:if="not ${declaration.getFirstCar().isInsurancePolicyCoverage()}"><b class="no-padding">Insurance
+                Policy Coverage: </b>
+                No</p>
+            <div class="border"></div>
+            <p><b>Driver</b></p>
+            <div class="border"></div>
+            <b>Family Name: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getFamilyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Name: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getName()}">iasnfaf iasnfaf sdgsd</p><b>Address: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getAddress()}">iasnfaf iasnfaf sdgsd</p><b>Postal
+            Code: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getPostalCode()}">iasnfaf iasnfaf
+                sdgsd</p><b>Country: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getCountry()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Contacts: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getContacts()}">iasnfaf iasnfaf sdgsd
+            </p><b>Driving Licence
+            Number: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getDrivingLicenceNumber()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Driving Licence
+                Category: </b>
+            <p th:text="${declaration.getFirstCar().getDriver().getDrivingLicenceCategory()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Driving Licence
+                Expiration Date: </b>
+            <p th:text="${#temporals.format(declaration.getFirstCar().getDriver().getDrivingLicenceExpirationDate(), 'yyyy-MM-dd')}">
+                iasnfaf iasnfaf sdgsd</p>
+        </div>
+        <div class="container third">
+            <p><b>Circumstances</b></p>
+            <div class="border"></div>
+            <div class="row-container">
+                <div class="container half no-border">
+                    <p><b>First Vehicle</b></p>
+                    <div class="border"></div>
+                    <p th:text="${declaration.getFirstCar().getCircumstance()}">
+                        dsgkmsdg sdogiknmsnmg osdmnfgsdopifgkm</p>
+                </div>
+                <div class="container half no-border">
+                    <p><b>Second Vehicle</b></p>
+                    <div class="border"></div>
+                    <p th:text="${declaration.getSecondCar().getCircumstance()}">
+                        dsgkmsdg sdogiknmsdgomg osdmnfgsdopifgkm</p>
+                </div>
+            </div>
+            <div class="border"></div>
+            <div class="row-container">
+                <div class="container no-border">
+                    <p><b>Culprit</b></p>
+                    <div class="border"></div>
+                    <p th:text="${declaration.getCulprit().getFullName()}">
+                        dsgkmsdg sdogiknmsnmg osdmnfgsdopifgkm</p>
+                </div>
+            </div>
+            <div class="border"></div>
+            <div class="row-container">
+                <div class="container no-border">
+                    <p><b>Signatures</b></p>
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="container no-border image-container">
+                    <div class="border"></div>
+                    <p><b>First Signature</b></p>
+                    <div class="border"></div>
+                    <img alt=""
+                         th:src="${image.getFirstImage()}"/>
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="container no-border image-container">
+                    <div class="border"></div>
+                    <p><b>Second Signature</b></p>
+                    <div class="border"></div>
+                    <img alt=""
+                         th:src="${image.getSecondImage()}"/>
+                </div>
+            </div>
+        </div>
+        <div class="container third">
+            <p><b>Second Vehicle</b></p>
+            <div class="border"></div>
+            <p><b>Insurer</b></p>
+            <div class="border"></div>
+            <b>Family Name: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getFamilyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Name: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getName()}">iasnfaf iasnfaf sdgsd</p><b>Address: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getAddress()}">iasnfaf iasnfaf sdgsd
+            </p><b>Postal Code: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getPostalCode()}">iasnfaf iasnfaf
+                sdgsd</p><b>Country: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getCountry()}">iasnfaf iasnfaf sdgsd
+            </p><b>Contacts: </b>
+            <p th:text="${declaration.getSecondCar().getInsurer().getContacts()}">iasnfaf iasnfaf sdgsd
+            </p>
+            <div class="border"></div>
+            <p><b>Vehicle</b></p>
+            <div class="border"></div>
+            <b>Car Model: </b>
+            <p th:text="${declaration.getSecondCar().getCar().getCarModel()}">iasnfaf iasnfaf sdgsd</p><b>Car Country
+            Plate: </b>
+            <p th:text="${declaration.getSecondCar().getCar().getCarCountryPlate()}">iasnfaf
+                iasnfaf sdgsd</p><b>Car Country
+            Registration: </b>
+            <p th:text="${declaration.getSecondCar().getCar().getCarCountryRegistration()}">iasnfaf iasnfaf sdgsd</p>
+            <div class="border"></div>
+            <p><b>Insurance</b></p>
+            <div class="border"></div>
+            <b>Insurance Company
+                Name: </b>
+            <p th:text="${declaration.getSecondCar().getInsurance().getInsuranceCompanyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Insurance Policy
+            Number: </b>
+            <p th:text="${declaration.getSecondCar().getInsurance().getInsurancePolicyNumber()}">iasnfaf iasnfaf
+                sdgsd</p><b>Insurance Green
+            Card Number: </b>
+            <p th:text="${declaration.getSecondCar().getInsurance().getInsuranceGreenCardNumber()}">iasnfaf iasnfaf
+                sdgsd</p>
+            <b>Insurance Valid
+                From: </b>
+            <p th:text="${#temporals.format(declaration.getSecondCar().getInsurance().getInsuranceValidFrom(), 'yyyy-MM-dd')}">
+                iasnfaf iasnfaf sdgsd</p>
+            <b>Insurance Valid To: </b>
+            <p th:text="${#temporals.format(declaration.getSecondCar().getInsurance().getInsuranceValidTo(), 'yyyy-MM-dd')}">
+                iasnfaf
+                iasnfaf sdgsd</p>
+            <p th:if="${declaration.getSecondCar().isInsurancePolicyCoverage()}"><b class="no-padding">Insurance Policy
+                Coverage: </b>
+                Yes</p>
+            <p th:if="not ${declaration.getSecondCar().isInsurancePolicyCoverage()}"><b class="no-padding">Insurance
+                Policy Coverage: </b>
+                No</p>
+            <div class="border"></div>
+            <p><b>Driver</b></p>
+            <div class="border"></div>
+            <b>Family Name: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getFamilyName()}">iasnfaf iasnfaf
+                sdgsd</p><b>Name: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getName()}">iasnfaf iasnfaf sdgsd</p><b>Address: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getAddress()}">iasnfaf iasnfaf sdgsd</p><b>Postal
+            Code: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getPostalCode()}">iasnfaf iasnfaf
+                sdgsd</p><b>Country: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getCountry()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Contacts: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getContacts()}">iasnfaf iasnfaf sdgsd
+            </p><b>Driving Licence
+            Number: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getDrivingLicenceNumber()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Driving Licence
+                Category: </b>
+            <p th:text="${declaration.getSecondCar().getDriver().getDrivingLicenceCategory()}">iasnfaf iasnfaf sdgsd</p>
+            <b>Driving Licence
+                Expiration Date: </b>
+            <p th:text="${#temporals.format(declaration.getSecondCar().getDriver().getDrivingLicenceExpirationDate(), 'yyyy-MM-dd')}">
+                iasnfaf iasnfaf sdgsd</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
