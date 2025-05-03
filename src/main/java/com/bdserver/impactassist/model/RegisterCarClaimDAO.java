@@ -1,5 +1,6 @@
 package com.bdserver.impactassist.model;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -13,22 +14,22 @@ import java.util.List;
 @Builder
 public class RegisterCarClaimDAO {
     private int id;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 60)
     private String carModel;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 10)
     private String vehicleRegistrationNumber;
-    @NotNull
+    @NotBlank
     @Size(min = 17, max = 17)
     private String vehicleIdentificationNumber;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 10)
     private String odometerMileage;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 30)
     private String insurancePolicyNumber;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 50)
     private String insuranceCompany;
     @NotNull
@@ -47,17 +48,17 @@ public class RegisterCarClaimDAO {
     private boolean policeInvolved;
     @Size(min = 1, max = 50)
     private String policeReportNumber;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 20)
     private String weatherCondition;
-    @NotNull
+    @NotBlank
     @Size(min = 1, max = 50)
     private String compensationMethod;
     @Size(min = 1, max = 300)
     private String additionalNotes;
     @NotNull
     private boolean dataManagementConsent;
-    @NotNull
+    @NotBlank
     @Size(min = 15, max = 34)
     private String internationalBankAccountNumber;
     @NotNull

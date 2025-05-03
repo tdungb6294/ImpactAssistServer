@@ -29,13 +29,9 @@ public class DamageReportController {
     }
 
     @GetMapping("/ai/{id}")
-    @RateLimiter(name = "myRateLimiter", fallbackMethod = "fallbackMethod")
+    @RateLimiter(name = "myRateLimiter")
     public Integer createDamageReportUsingAI(@PathVariable Integer id) throws IOException {
         return damageReportService.createDamageReportUsingAI(id);
-    }
-
-    public String fallbackMethod(Exception ex) {
-        return "Rate limit exceeded, please try again later!";
     }
 
     @GetMapping("/claim/{claimId}")

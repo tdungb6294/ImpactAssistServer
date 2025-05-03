@@ -115,6 +115,6 @@ sonar {
         property "sonar.projectKey", "impactassistserver"
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.projectName", "impactassistserver"
-        property "sonar.token", "sqp_74bc0cbf6b68016fc829a7a3126c21ab60abb3a5"
+        property "sonar.token", "sqp_a4c36e2bf8d357389bd947c94b62476be8155c2a"
     }
 }

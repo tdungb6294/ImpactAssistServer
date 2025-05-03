@@ -1,5 +1,6 @@
 package com.bdserver.impactassist.model;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -9,15 +10,15 @@ import java.time.LocalDateTime;
 public class RequestDeclarationDAO {
     @NotNull
     private LocalDateTime datetime;
-    @NotNull
+    @NotBlank
     private String accidentCountryLocation;
-    @NotNull
+    @NotBlank
     private String peopleInjuries;
     @NotNull
     private boolean damageToCars;
     @NotNull
     private boolean damageToObjects;
-    @NotNull
+    @NotBlank
     private String witnesses;
     @NotNull
     private LatLngDAO accidentLatLng;

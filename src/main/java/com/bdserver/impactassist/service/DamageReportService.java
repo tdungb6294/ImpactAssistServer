@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class DamageReportService {
@@ -175,7 +176,7 @@ public class DamageReportService {
         RequestDamageReportDAO requestDamageReport = RequestDamageReportDAO.builder()
                 .reportId(reportId)
                 .claimId(claimId)
-                .autoPartsAndServices(chatResponseData.getParts_id())
+                .autoPartsAndServices(chatResponseData.getParts_id().stream().filter(n -> n >= 0 && n <= 228).collect(Collectors.toList()))
                 .build();
         damageReportRepo.addReportDataToReport(requestDamageReport);
         return reportId;
