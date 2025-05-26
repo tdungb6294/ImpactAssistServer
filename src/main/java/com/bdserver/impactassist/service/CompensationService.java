@@ -14,15 +14,19 @@ import java.time.LocalDate;
 public class CompensationService {
     private final SpringTemplateEngine springTemplateEngine;
     private final DamageReportService damageReportService;
+    private final UserService userService;
 
-    public CompensationService(SpringTemplateEngine springTemplateEngine, DamageReportService damageReportService) {
+    public CompensationService(SpringTemplateEngine springTemplateEngine, DamageReportService damageReportService, UserService userService) {
         this.springTemplateEngine = springTemplateEngine;
         this.damageReportService = damageReportService;
+        this.userService = userService;
     }
 
 
     public byte[] generatePdf(RequestCompensationDAO request) {
+        int userId = userService.getUserId();
         ResponseDamageReportDAO damageReport = damageReportService.getReport(request.getReportId(), null);
+        damageReport.getDamageReport().setFullName(userService.getUserDataById(userId).getFullName());
         Context context = new Context();
         context.setVariable("date", LocalDate.now());
         context.setVariable("fullName", damageReport.getDamageReport().getFullName());

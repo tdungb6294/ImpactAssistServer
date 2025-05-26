@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-<h1>Damage Report</h1>
+<h1>Compensation Report</h1>
 <p>Total Items: <span th:text="${autoPartsAndServices.size()}"></span></p>
 <p>Date: <span th:text="${#temporals.format(date, 'yyyy-MM-dd')}"></span></p>
 <p>By: <span th:text="${fullName}"></span></p>
@@ -62,7 +62,7 @@
 <p>Estimated Price With Services: <span
         th:text="${estimatedMinPriceWithService} + ' - ' + ${estimatedMaxPriceWithService} + ' $'"></span></p>
 <p>Compensation amount: <span
-        th:text="${compensationAmount}' $'"></span></p>
+        th:text="${compensationAmount} + ' $'"></span></p>
 
 </body>
 </html>

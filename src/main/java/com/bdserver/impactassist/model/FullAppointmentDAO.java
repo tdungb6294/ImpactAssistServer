@@ -1,13 +1,11 @@
 package com.bdserver.impactassist.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-@Builder
 public class FullAppointmentDAO {
     private int id;
     private String title;
